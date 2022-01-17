@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',
+        sans-serif;
+    text-decoration: none;
+}
+
+.bg_navbar {
+    background-image: linear-gradient(to right, #252525 0%, black 100%);
+}
+
+.font_logo {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    display: inline;
+
+}
+
+.card_imovel {
+    background-color: #050505;
+    margin: 50px auto 0 auto;
+    width: 20rem;
+    /* margin-top: 50px; */
+    border-radius: 26px;
+}
+
+.img_capa_imovel {
+
+    width: 100%;
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+
+}
+
+.informacoes_imoveis {
+
+    padding: 20px;
+    color: white;
+
+}
+
+.valor {
+
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}
+
+.btn_filtrar {
+
+    border: none;
+    background-color: transparent;
+    border: 2px solid #000000;
+    color: #000000;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.btn_filtrar:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.titulo_filtrar {
+
+    color: #000000;
+    font-weight: bold;
+    font-size: 30px;
+
+}
+
+.btn_filtrar_modal {
+
+    border: 2px solid #000000;
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+    transition: 0.5s;
+}
+
+.btn_filtrar_modal:hover {
+    background-color: #000000;
+    color: #fff;
+}
+
+.a_none {
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+
+.a_none:hover {
+
+    text-decoration: none;
+    color: rgb(155, 155, 155);
+
+}
+
+.titulo_especificacao {
+    color: #000000;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 40px;
+
+}
+
+.especificacao {
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.especificacao_endereco {
+    font-size: 25px;
+
+}
+
+.btn_agendar_visita {
+
+    border: 2px solid #000000;
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+
+}
+
+.div_possivel_interesse {
+
+    text-align: left;
+
+}
+
+.btn_agendar {
+
+    border: none;
+    background-color: #000000;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+
+}
+
+.btn_agendar:hover {
+
+    text-decoration: none;
+    color: white;
+
+}
