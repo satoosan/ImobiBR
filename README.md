@@ -66,3 +66,10 @@ Na URL, do localhost, por exemplo http://127.0.0.1:8000 coloque, "/admin".<br>
 
 
 <h2><img src="https://cdn.discordapp.com/attachments/897304698468565022/932425051515551764/logo.png" alt="Logo Imobi" width="35px"> Preview Imobi</h2>
+
+<img src="https://github.com/satoosan/Imobi-Pystackweek2.0/blob/main/preview/preview.gif?raw=true">
+
+##
+
+### Créditos
+- <a href="https://www.linkedin.com/company/pythonando/">Caio Sampaio (Pythonando)</a>
