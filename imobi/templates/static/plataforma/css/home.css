@@ -8,6 +8,14 @@
     text-decoration: none;
 }
 
+.carousel-slide{
+    width: 50%;
+}
+
+.back-dark{
+    background-color: #050505;
+}
+
 .bg_navbar {
     background-image: linear-gradient(to right, #252525 0%, black 100%);
 }
@@ -19,31 +27,53 @@
 
 }
 
+.user-col{
+    margin-top: -50px; 
+    padding: 1.5em;
+}
+
+.user-info{
+    text-align: center;
+    font-size: 1.5em;
+}
+
 .card_imovel {
     background-color: #050505;
-    margin: 50px auto 0 auto;
-    width: 20rem;
-    /* margin-top: 50px; */
-    border-radius: 26px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.card_imovel_interesse {
+    background-color: #050505;
+    width: 500px;
+    border-radius: 6px;
 }
 
 .img_capa_imovel {
-
     width: 100%;
-    border-top-left-radius: 26px;
-    border-top-right-radius: 26px;
+    border-radius: 6px;
+}
 
+.img_capa_imovel_interesse {
+    margin: 5px;
+    padding: 2px 5px;
+    width: 100%;
+    border-radius: 6px;
 }
 
 .informacoes_imoveis {
-
     padding: 20px;
     color: white;
+}
 
+.informacoes_imoveis_interesse {
+    margin-top: 8px;
+    margin-left: -8px;
+    padding: 2px 5px;
+    color: white;
 }
 
 .valor {
-
     font-weight: bold;
     border-bottom: 1px solid white;
 }
@@ -105,19 +135,27 @@
     color: #000000;
     font-weight: bold;
     margin-top: 20px;
-    font-size: 40px;
+    font-size: 25px;
+    margin-left: -15px;
+}
 
+.titulo_interesse {
+    color: #000000;
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 30px;
+    margin-left: -15px;
 }
 
 .especificacao {
-    font-size: 30px;
+    text-align: center;
+    margin-top: -9px;
+    font-size: 25px;
     font-weight: bold;
-
 }
 
 .especificacao_endereco {
-    font-size: 25px;
-
+    font-size: 18px;
 }
 
 .btn_agendar_visita {
@@ -132,9 +170,7 @@
 }
 
 .div_possivel_interesse {
-
     text-align: left;
-
 }
 
 .btn_agendar {
@@ -153,4 +189,8 @@
     text-decoration: none;
     color: white;
 
+}
+
+.link-contact{
+    text-decoration: none;
 }
