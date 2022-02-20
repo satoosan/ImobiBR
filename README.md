@@ -1,15 +1,21 @@
-<h1><img src="https://cdn.discordapp.com/attachments/897304698468565022/932425051515551764/logo.png" alt="Logo Imobi" width="35px"> ImobiBR - Agendamentos de Imoves</h1>
+<h1 align="center"><img src="https://cdn.discordapp.com/attachments/897304698468565022/932425051515551764/logo.png" alt="Logo Imobi" width="35px"> ImobiBR - Agendamentos de Imoves</h1>
 
-<h3>Website - Agendamento de Imoveis desenvolvido com Python</h3>
+<h3 align="center">Website - Agendamento de Imoveis desenvolvido com Python</h3>
+<p align="center"><a href="#sobre">Sobre</a> ¤ <a href="#tech">Tecnologias</a> ¤ <a href="#temp">Templates</a></p>
 
-## Sobre o Projeto
-- O Imobi foi re-criado, com a ideia de deixar o layout mais atraente e foi adicionado mais funcionalidades para os usuários.
-- Foi criado com <b>Python</b> e o framework <b>Django</b>.
-- Foi utilizado a tecnica ORM, em que a ideia é fazer com que as classes, em Python, se transformem em tabelas no banco de dados.
-- O banco padrão utilizado foi o SQLite.
-- Foi utilizado o padrão MT<a href="#template">¹</a>V.
+##
 
-### Tecnologias utilizadas
+<h2 id="sobre">Sobre o Projeto</h2>
+<div>
+  <li> O Imobi foi re-criado, com a ideia de deixar o layout mais atraente e foi adicionado mais funcionalidades para os usuários.</li>
+  <li> Foi criado com <b>Python</b> e o framework <b>Django</b>.</li>
+  <li> Foi utilizado a tecnica ORM, em que a ideia é fazer com que as classes, em Python, se transformem em tabelas no banco de dados.</li>
+  <li> O banco padrão utilizado foi o SQLite.</li>
+  <li> Foi utilizado o padrão MT<a href="#temp">¹</a>V.</li>
+</div>
+  
+<h2 id="tech">Tecnologias utilizadas</h2>
+
 - **Python** e **Django**;
 - Font Awesome 5 (Icons);
 - Bootstrap 5;
@@ -17,7 +23,7 @@
 - VSCode (Editor de código-fonte);
 
 ##
-> <h2 id="template">Templates¹</h2>
+> <h2 id="temp">Templates¹</h2>
 >
 > > ### Na home.html
 > > - Há o navbar, com os links de navegação.
