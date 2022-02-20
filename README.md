@@ -69,4 +69,4 @@ Dentro do Django Admin, é possível, adicionar novas Ruas, Imoveis, Visitas e e
 ##
 
 ### Preview em Slides
-<img src="https://cdn.discordapp.com/attachments/944803447214051369/945082883989717062/Webp.net-gifmaker.gif">
+<img src="https://github.com/satoosan/Imobi-Pystackweek2.0/blob/main/preview/preview.gif?raw=true" width="500px">
