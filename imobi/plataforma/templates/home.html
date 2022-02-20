@@ -99,21 +99,21 @@
 
             {% if page.has_previous %}
               <li class="page-item">
-                <a class="page-link bg-dark" href="{% url 'home' %}?page={{ page.previous_page_number }}">Previous</a>
+                <a class="page-link bg-dark" href="{% url 'home' %}?page={{ page.previous_page_number }}">Anterior</a>
               </li>
             {% else %}
               <li class="page-item disabled">
-                <a class="page-link bg-dark" href="#">Previous</a>
+                <a class="page-link bg-dark" href="#">Anterior</a>
               </li>
             {%endif %}
 
             {% if page.has_next %}
               <li class="page-item">
-                <a class="page-link bg-dark" href="{% url 'home' %}?page={{ page.next_page_number }}">Next</a>
+                <a class="page-link bg-dark" href="{% url 'home' %}?page={{ page.next_page_number }}">Próximo</a>
               </li>
             {% else %}
               <li class="page-item disabled">
-                <a class="page-link bg-dark" href="">Next</a>
+                <a class="page-link bg-dark" href="">Próximo</a>
               </li>
             {%endif %}
 
