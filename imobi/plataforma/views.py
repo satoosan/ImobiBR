@@ -42,14 +42,15 @@ def home(request):
 
         imoveis = Imovei.objects.filter(valor__gte=preco_minimo).filter(
             valor__lte=preco_maximo).filter(tipo_imovel__in=tipo).filter(cidade=cidade)
-    else:
-        imoveis = Imovei.objects.all()
-        
         imoveis_paginator = Paginator(imoveis, 6)
         
         page_num = request.GET.get('page')
-        
         page = imoveis_paginator.get_page(page_num)
+    else:
+        imoveis = Imovei.objects.all()
+        imoveis_paginator = Paginator(imoveis, 6)
+        page = imoveis_paginator.get_page(page_num)
+        page_num = request.GET.get('page')
         
     return render(request, 'home.html', {'page': page, 'count' : imoveis_paginator.count, 'cidades': cidades})
 
