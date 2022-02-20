@@ -52,7 +52,7 @@ Cadastre algum usuário, e depois logue com os mesmos dados que foram utilizados
 
 ##
 
-<h2 id="outher">Outros</h2>
+<h2 id="other">Outros</h2>
 
 <h3> Acessar como <b>admin</b> </h3>
 <p> Na URL, após o localhost, adicione "/admin", para acessar a área, após isso, irá solicitar um usuário e uma senha.</p>
