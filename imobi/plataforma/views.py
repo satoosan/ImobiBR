@@ -49,8 +49,9 @@ def home(request):
     else:
         imoveis = Imovei.objects.all()
         imoveis_paginator = Paginator(imoveis, 6)
-        page = imoveis_paginator.get_page(page_num)
+        
         page_num = request.GET.get('page')
+        page = imoveis_paginator.get_page(page_num)
         
     return render(request, 'home.html', {'page': page, 'count' : imoveis_paginator.count, 'cidades': cidades})
 
