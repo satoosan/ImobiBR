@@ -52,6 +52,8 @@ Cadastre algum usuário, e depois logue com os mesmos dados que foram utilizados
 
 ##
 
+<h2 id="outher">Outros</h2>
+
 <h3> Acessar como <b>admin</b> </h3>
 <p> Na URL, após o localhost, adicione "/admin", para acessar a área, após isso, irá solicitar um usuário e uma senha.</p>
 <p> No terminal, novamente, utilize o comando </p>
@@ -66,4 +68,5 @@ Dentro do Django Admin, é possível, adicionar novas Ruas, Imoveis, Visitas e e
 
 ##
 
-<h2>Outros</h3>
+### Preview em Slides
+<img src="https://cdn.discordapp.com/attachments/944803447214051369/945082883989717062/Webp.net-gifmaker.gif">
