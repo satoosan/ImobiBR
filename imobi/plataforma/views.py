@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from .models import Imovei, Cidade, Visitas
 from django.shortcuts import get_object_or_404
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -44,7 +44,14 @@ def home(request):
             valor__lte=preco_maximo).filter(tipo_imovel__in=tipo).filter(cidade=cidade)
     else:
         imoveis = Imovei.objects.all()
-    return render(request, 'home.html', {'imoveis': imoveis, 'cidades': cidades})
+        
+        imoveis_paginator = Paginator(imoveis, 6)
+        
+        page_num = request.GET.get('page')
+        
+        page = imoveis_paginator.get_page(page_num)
+        
+    return render(request, 'home.html', {'page': page, 'count' : imoveis_paginator.count, 'cidades': cidades})
 
 
 def imovel(request, id):
