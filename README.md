@@ -11,7 +11,7 @@
   <li> Foi criado com <b>Python</b> e o framework <b>Django</b>.</li>
   <li> Foi utilizado a tecnica ORM, em que a ideia é fazer com que as classes em Python, se transformem em tabelas no banco de dados.</li>
   <li> O banco padrão utilizado foi o SQLite.</li>
-  <li> Foi utilizado o padrão MT<a href="#temp">¹</a>V.</li>
+  <li> Foi utilizado o padrão MTV (Model-Template-View).</li>
 </div>
   
 <h2 id="tech">💻 Tecnologias utilizadas</h2>
@@ -68,5 +68,5 @@ Dentro do Django Admin, é possível, adicionar novas Ruas, Imoveis, Visitas e e
 
 ##
 
-### Preview em Slides
+### Preview
 <img src="https://github.com/satoosan/Imobi-Pystackweek2.0/blob/main/preview/preview.gif?raw=true" width="500px">
