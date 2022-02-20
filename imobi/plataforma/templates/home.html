@@ -11,16 +11,19 @@
 
 <div class="container me-auto">
   <br>
-  <button type="button" class="btn_filtrar" data-toggle="modal"
-	 data-target="#exampleModal">
+    <button type="button" class="btn_filtrar" data-toggle="modal"
+    data-target="#exampleModal">
     FILTRAR
-  </button>
+    </button>
 
+    <div class="user-col mt-1">
+      <p class="user-info">Seja bem vindo(a) <span class="text-uppercase fw-bold">{{user.username}}</span>!</p>
+    </div>
   <div class="row">
 
-    {% for imovel in imoveis %}
+    {% for imovel in page.object_list %}
       
-        <div class="col col-md-4 cont">
+        <div class="col col-md-4 p-2">
           <div class="card_imovel">
             <img class="img_capa_imovel" src="{{imovel.imagens.all.0.img.url}}">
             <div class="informacoes_imoveis">
@@ -89,5 +92,108 @@
     </div>
   </div>
 </div>
+
+        <nav class="mt-5 mb-5">
+          
+          <ul class="pagination justify-content-center">
+
+            {% if page.has_previous %}
+              <li class="page-item">
+                <a class="page-link bg-dark" href="{% url 'home' %}?page={{ page.previous_page_number }}">Previous</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link bg-dark" href="#">Previous</a>
+              </li>
+            {%endif %}
+
+            {% if page.has_next %}
+              <li class="page-item">
+                <a class="page-link bg-dark" href="{% url 'home' %}?page={{ page.next_page_number }}">Next</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled">
+                <a class="page-link bg-dark" href="">Next</a>
+              </li>
+            {%endif %}
+
+          </ul>
+        </nav>
+        
+          <!-- Footer -->
+          <footer class="back-dark text-center text-white mt-4">
+            <!-- Grid container -->
+            <div class="container p-4">
+              <!-- Section: Social media -->
+              <section class="mb-4">
+                <!-- Instagram -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+      
+                <!-- Linkedin -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+      
+                <!-- Github -->
+                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                  ><i class="fab fa-github"></i
+                ></a>
+              </section>
+              <!-- Section: Social media -->
+      
+              <!-- Section: Links -->
+              <section class="text-center">
+                <!--Grid row-->
+                <div class="row">
+
+      
+                  <!--Grid column-->
+                  <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-capitalize">Compania imobiBR</h5>
+      
+                    <ul class="list-unstyled mb-0">
+                      <li class="mt-2">
+                        <a href="#!" class="text-white link-contact">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam sequi voluptate quas.
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--Grid column-->
+                  <!--Grid column-->
+                  <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Contato</h5>
+      
+                    <ul class="list-unstyled mb-0">
+                      <li class="mt-2">
+                        <a href="#" class="text-white link-contact"><i class="fas fa-home me-3"></i> Rua Azefredo, SP, Brasil</a>
+                      </li>
+                      <li  class="mt-1">
+                        <a href="#" class="text-white link-contact"><i class="fas fa-envelope me-3"></i>
+                          imobibr@org.com</a>
+                      </li>
+                      <li class="mt-1">
+                        <a href="#" class="text-white link-contact"><i class="fas fa-phone me-3"></i> + 55 11 94521-4521</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--Grid column-->
+                </div>
+                <!--Grid row-->
+              </section>
+              <!-- Section: Links -->
+            </div>
+            <!-- Grid container -->
+      
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2021 Copyright
+              <a class="text-white" href="">imobibr.com</a>
+            </div>
+            <!-- Copyright -->
+          </footer>
+          <!-- Footer -->
 
 {% endblock %}
