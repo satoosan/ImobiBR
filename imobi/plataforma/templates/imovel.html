@@ -7,75 +7,69 @@
 
 {% block 'body' %}
 
-    <div style="text-align: center" class="container">
-        <br>
-        <br>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                {% for img in imovel.imagens.all  %}
-                    <div class="carousel-item {% if forloop.first %} active {% endif %}" >
-                        <img class="d-block w-100" src="{{img}}" alt="First slide">
-                    </div>
-                {% endfor %}
-                
-            </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-
+    <div class="container-fluid text-center">
         <div class="row">
-            <div class="col-md">
-                <h3 class="titulo_especificacao">Valor</h3>
-                <p class="especificacao">R$ {{imovel.valor}}</p>
-
+            <div class="col-12 col-lg-6 col-sm-6">
+                <div id="carouselExampleControls" class="carousel slide w-100 mt-3 ms-auto me-auto" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for img in imovel.imagens.all  %}
+                            <div class="carousel-item {% if forloop.first %} active {% endif %}" >
+                                <img class="d-block w-100" src="{{img}}" alt="First slide">
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
             </div>
-
-            <div class="col-md">
-                <h3 class="titulo_especificacao">Quartos</h3>
-                <p class="especificacao">{{imovel.quartos}} Quartos</p>
+            <div class="col-sm-6">
+              <div class="row">
+                  <div class="col-12 col-lg-12 col-sm-12">
+                          <h3 class="titulo_especificacao">Endereço</h3>
+                          <p class="especificacao_endereco">{{imovel.rua}}, {{imovel.cidade }}</p>
+                  </div>
+                  <div style="col-12 col-lg-12 col-sm-12">
+                      <h3 class="titulo_especificacao">Descrição</h3>
+                      <p class="especificacao_endereco">{{imovel.descricao}}</p>
+                      <br>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-lg-4 col-sm-4">
+                        <h3 class="titulo_especificacao">Valor</h3>
+                        <p class="especificacao">R$ {{imovel.valor}}</p>
+        
+                    </div>
+                    <div class="col-6 col-lg-4 col-sm-4">
+                        <h3 class="titulo_especificacao">Quartos</h3>
+                        <p class="especificacao">{{imovel.quartos}}</p>
+                    </div>
+                    <div class="col-12 col-lg-4 col-sm-4">
+                        <h3 class="titulo_especificacao">Tamanho</h3>
+                        <p class="especificacao">{{imovel.tamanho}}m²</p>
+                    </div>
+                    <div class="col-12 col-lg-12 col-sm-12">
+                    <button class="btn_agendar_visita" data-toggle="modal" data-target="#exampleModal">AGENDAR VISITA</button>
+                    </div>
+                  </div>
             </div>
-
-            <div class="col-md">
-                <h3 class="titulo_especificacao">Tamanho</h3>
-                <p class="especificacao">{{imovel.tamanho}}m²</p>
-            </div>
-
-            
-
         </div>
-        <br>
-        <br>
-        <div style="text-align: left">
-            <h3 class="titulo_especificacao">Endereço</h3>
-            <p class="especificacao_endereco">{{imovel.rua}}, {{imovel.cidade }}</p>
-        </div>
-
-        <br>
-        <div style="text-align: left">
-            <h3 class="titulo_especificacao">Descrição</h3>
-            <p class="especificacao_endereco">{{imovel.descricao}}</p>
-            <br>
-            <button class="btn_agendar_visita" data-toggle="modal" data-target="#exampleModal">AGENDAR VISITA</button>
-            <br>
-            <br>
-        </div>
-
-        <hr style="border: 1px solid black">
-        <br>
-        <div class="div_possivel_interesse">
-            <h3 class="titulo_especificacao">Talvez você se interesse por</h3>
-            
-            <div class="row">
+        
+        {% if sugestoes %}
+        <hr>
+        <div class="div_possivel_interesse me-auto ms-auto">
+            <h3 class="titulo_interesse text-center">Talvez você se interesse por</h3>
+          
+            <div class="row me-auto ms-auto">
                 {% for sugestao in sugestoes %}
-                    <div class="col-md cont">
-                        <div class="card_imovel">
+                    <div class="col-md-6 mt-2 me-auto ms-auto">
+                        <div class="card_imovel w-75 me-auto ms-auto">
                             <img class="img_capa_imovel" src="{{sugestao.imagens.all.0.img.url}}">
                             <div class="informacoes_imoveis">
                             <a class="a_none" href="{% url 'imovel' sugestao.id %}"><h4 class="valor">R$ {{sugestao.valor}}</h4></a>
@@ -87,18 +81,11 @@
                         </div>
 
                     </div>
-
                 {% endfor %}
             </div>
-            
-            
-            
         </div>
-        
-
-        
-        
-
+        {% else %}
+        {% endif %}
     </div>
     
 
@@ -135,5 +122,81 @@
             </div>
         </div>
     </div>
+
+              <!-- Footer -->
+              <footer class="back-dark text-center text-white mt-4">
+                <!-- Grid container -->
+                <div class="container p-4">
+                  <!-- Section: Social media -->
+                  <section class="mb-4">
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                      ><i class="fab fa-instagram"></i
+                    ></a>
+          
+                    <!-- Linkedin -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                      ><i class="fab fa-linkedin-in"></i
+                    ></a>
+          
+                    <!-- Github -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                      ><i class="fab fa-github"></i
+                    ></a>
+                  </section>
+                  <!-- Section: Social media -->
+          
+                  <!-- Section: Links -->
+                  <section class="text-center">
+                    <!--Grid row-->
+                    <div class="row">
+    
+          
+                      <!--Grid column-->
+                      <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-capitalize">Compania imobiBR</h5>
+          
+                        <ul class="list-unstyled mb-0">
+                          <li class="mt-2">
+                            <a href="#!" class="text-white link-contact">
+                              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam sequi voluptate quas.
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <!--Grid column-->
+                      <!--Grid column-->
+                      <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Contato</h5>
+          
+                        <ul class="list-unstyled mb-0">
+                          <li class="mt-2">
+                            <a href="#" class="text-white link-contact"><i class="fas fa-home me-3"></i> Rua Azefredo, SP, Brasil</a>
+                          </li>
+                          <li  class="mt-1">
+                            <a href="#" class="text-white link-contact"><i class="fas fa-envelope me-3"></i>
+                              imobibr@org.com</a>
+                          </li>
+                          <li class="mt-1">
+                            <a href="#" class="text-white link-contact"><i class="fas fa-phone me-3"></i> + 55 11 94521-4521</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <!--Grid column-->
+                    </div>
+                    <!--Grid row-->
+                  </section>
+                  <!-- Section: Links -->
+                </div>
+                <!-- Grid container -->
+          
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                  © 2021 Copyright
+                  <a class="text-white" href="">imobibr.com</a>
+                </div>
+                <!-- Copyright -->
+              </footer>
+              <!-- Footer -->
 
 {% endblock  %}
