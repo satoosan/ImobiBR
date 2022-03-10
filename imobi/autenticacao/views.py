@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.contrib import auth
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.conf import settings
+
 
 
 def cadastro(request):
@@ -37,6 +42,13 @@ def cadastro(request):
 
             messages.add_message(request, constants.SUCCESS,
                                  'Usuário cadastrado com sucesso!')
+            
+            html_content = render_to_string('emails/cadastro_confirmado.html')
+            text_content = strip_tags(html_content)
+            
+            email_send = EmailMultiAlternatives('Cadastro Confirmado', text_content, settings.EMAIL_HOST_USER, [email])
+            email_send.attach_alternative(html_content, 'text/html')
+            email_send.send()
 
             return redirect('/auth/logar')
         except:
