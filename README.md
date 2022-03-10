@@ -1,75 +1,72 @@
-<h1><img src="https://cdn.discordapp.com/attachments/897304698468565022/932425051515551764/logo.png" alt="Logo Imobi" width="35px"> Imobi - PyStack Week 2.0</h1>
+<h1 align="center"><img src="https://cdn.discordapp.com/attachments/897304698468565022/932425051515551764/logo.png" alt="Logo Imobi" width="35px"> ImobiBR - Agendamentos de Imoves</h1>
 
-<p>Website - Agendamento de Imoveis com Python</p>
-
-<h2>Sobre o Projeto</h2>
-<p>
-O projeto, foi desenvolvido na Semana PyStack Week 2.0, lecionado por <a href="https://www.linkedin.com/in/caio-sampaio-b08b8a17b"/> Caio Sampaio</a>.
-<br>
-Onde o objetivo do projeto, era criar uma aplicação web de <strong>Agendamento de Imoveis</strong>, com o framework <em>Django</em>.
-<p>
-  
-<ul>
-  <h3>Dentro do Backend</h3>
-  <p>Padrão MVT (Model-View-Templates)</p>
-  <li><strong>Model</strong> (Mapeamento do Banco de Dados): <br>
-    <ul>
-      <li> Para gerencimento de tabelas no banco de dados, foi utilizado a técnica <strong>ORM</strong> (Mapeamento objeto-relacional) que basicamente,
-        transforma as classes Python em tabelas no banco de dados.</li>
-    </ul>
-    ➖ ➖ ➖ 
-  </li>
-  <li><strong>Template</strong> (Páginas para visualização de dados): <br>
-    <ul>
-    <li>Na seção <strong>Autenticação</strong>, o navegador irá renderizar a área de <strong>Cadastro</strong> e de <strong>Logar</strong></li>
-    <li>Na seção <strong>Plataforma</strong> o navegador irá renderizar:</li>
-      <ul>
-        <li>A "home", com os imóveis dísponiveis;<br></li>
-        <li>O "imovel", os próprios produtos, com imagem, descrição, localização e botão de agendamento;<br></li>
-        <li>Os "agendamentos", haverá todos os imóveis que o usuário agendou.</li>
-      </ul>
-    </ul>
-  </li>
-  ➖ ➖ ➖ 
-  <li><strong>View</strong> (Lógica de negócio): </li>
-  <ul>
-  <li>Nas Views de Autenticação e da Plataforma, comportará as funções, que irão realizar tarefas de requisições do usuário.</li>
-  </ul>
-    ➖ ➖ ➖ 
-</ul>
-
-## 
-
-<h3>Para utilizar o Projeto: </h3>
-
-- Python 3.9 instalado, ou verifique sua versão, caso já esteja instalado: python --version
-- Instalar as Bibliotecas:
-  - **Django** (Framework para desenvolvimento rápido para web)
-  - **Pillow** (Biblioteca que adiciona suporte à abertura e gravação de muitos formatos de imagem diferentes)
-
-```Python
-# pip install django
-# pip install pillow
-```
-
-*obs*: Caso de erro de ***csrf_token***, verifique se o seu navegador está aceitando cookies ou utilize outro navegador, aconselho utilizar o Google Chrome.<br><br>
-Ou utilize já este usuário cadastrado, caso não esteja conseguindo:<br>
-**username**: Caio<br>
-**password**: 123
-
-Para acessar a área de administração do **Django**:<br>
-Na URL, do localhost, por exemplo http://127.0.0.1:8000 coloque, "/admin".<br>
-**superuser**: admin<br>
-**password**: imobi123
-
-## 
-
-
-<h2><img src="https://cdn.discordapp.com/attachments/897304698468565022/932425051515551764/logo.png" alt="Logo Imobi" width="35px"> Preview Imobi</h2>
-
-<img src="https://github.com/satoosan/Imobi-Pystackweek2.0/blob/main/preview/preview.gif?raw=true">
+<h3 align="center">🏢 Website - Agendamento de Imoveis desenvolvido com Python</h3>
+<p align="center"><a href="#sobre">Sobre</a> ¤ <a href="#tech">Tecnologias</a> ¤ <a href="#tuto">Tutorial</a> ¤ <a href="#other">Outros</a></p>
 
 ##
 
-### Créditos
-- <a href="https://www.linkedin.com/company/pythonando/">Caio Sampaio (Pythonando)</a>
+<h2 id="sobre">✨ Sobre o Projeto</h2>
+<div>
+  <li> O Imobi foi re-criado, com a ideia de deixar o layout mais atraente e foi adicionado mais funcionalidades para os usuários.</li>
+  <li> Foi criado com <b>Python</b> e o framework <b>Django</b>.</li>
+  <li> Foi utilizado a tecnica ORM, em que a ideia é fazer com que as classes em Python, se transformem em tabelas no banco de dados.</li>
+  <li> O banco padrão utilizado foi o SQLite.</li>
+  <li> Foi utilizado o padrão MTV (Model-Template-View).</li>
+</div>
+  
+<h2 id="tech">💻 Tecnologias utilizadas</h2>
+
+- **Python** e **Django**;
+- Font Awesome 5 (Icons);
+- Bootstrap 5;
+- PIP (Gerenciador de Pacotes);
+- VSCode (Editor de código-fonte);
+
+##
+
+<h2 id="tuto">✒ Tutorial</h2>
+
+<h3>Pré-requisitos</h3>
+<ul>
+  <li>Python 3</li>
+  <li>Git (Opcional)</li>
+  <li>VSCode</li>
+</ul>
+
+<p>Clone este repositório, em seu diretório, ou faça download, por aqui, <a href="https://github.com/satoosan/Imobi-Pystackweek2.0/archive/refs/heads/main.zip">
+  ImobiBR</a>.
+</p>
+
+```Bash
+# Utilize esse comando no terminal, dentro do diretorio raíz.
+python manage.py runserver
+```
+<p>Se caso der algum erro, de compilação, tenter abaixar primeiramente as libs.</p>
+
+```Bash
+pip install django
+pip install pillow
+```
+
+Cadastre algum usuário, e depois logue com os mesmos dados que foram utilizados, se caso der algum erro de <b>_csrf</b>, de segurança, utilize o <b>ctrl+F5</b>, para atualizar e limpar o cache
+
+##
+
+<h2 id="other">Outros</h2>
+
+<h3> Acessar como <b>admin</b> </h3>
+<p> Na URL, após o localhost, adicione "/admin", para acessar a área, após isso, irá solicitar um usuário e uma senha.</p>
+<p> No terminal, novamente, utilize o comando </p>
+
+```Bash
+python manage.py createsuperuser
+```
+
+Segue as intruções, adicione um usuário e uma senha, qualquer outro dados é opcional.<br>
+Dentro do formulário coloque os dados adicionados anteriormente, e voilá! Você agora é um super usuári.o</br>
+Dentro do Django Admin, é possível, adicionar novas Ruas, Imoveis, Visitas e etc... Lembrando que isso pode influenciar no front-end. 
+
+##
+
+### Preview
+<img src="https://github.com/satoosan/Imobi-Pystackweek2.0/blob/main/preview/preview.gif?raw=true" width="500px">
