@@ -105,7 +105,7 @@ celerybeat.pid
 .env
 .venv
 env/
-imobi/imobi/settings.ini
+imobi\imobi\settings.ini
 venv/
 ENV/
 env.bak/
