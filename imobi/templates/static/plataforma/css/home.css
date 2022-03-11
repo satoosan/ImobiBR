@@ -17,7 +17,27 @@
 }
 
 .bg_navbar {
-    background-image: linear-gradient(to right, #252525 0%, black 100%);
+    background-color: #050505;
+}
+
+.link{
+    color: #fff !important;
+    transition: 0.5s;
+}
+
+.link:hover{
+    color: #ccc !important;
+}
+
+.btn-dark{
+    background-color: transparent !important;
+    border-color: #fff !important;
+    transition: 0.3s;
+}
+
+.btn-dark:hover{
+    background-color: #fff !important;
+    color: #000 !important;
 }
 
 .font_logo {
