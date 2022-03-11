@@ -105,7 +105,11 @@ celerybeat.pid
 .env
 .venv
 env/
+<<<<<<< HEAD
+imobi/imobi/settings.ini
+=======
 imobi\imobi\settings.ini
+>>>>>>> 27f4b87cc21de2f64b89cda91228e9eed252f880
 venv/
 ENV/
 env.bak/
@@ -128,3 +132,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+imobi/imobi/settings.ini
