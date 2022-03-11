@@ -3,6 +3,12 @@
 
 {% block 'head' %}
 <link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.theme.default.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/vendors/mdi/css/materialdesignicons.min.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/vendors/aos/css/aos.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/css/style.min.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}">
 {% endblock  %}
 
 {% block 'body' %}
@@ -67,21 +73,20 @@
             <h3 class="titulo_interesse text-center">Talvez você se interesse por</h3>
           
             <div class="row me-auto ms-auto">
-                {% for sugestao in sugestoes %}
-                    <div class="col-md-6 mt-2 me-auto ms-auto">
-                        <div class="card_imovel w-75 me-auto ms-auto">
-                            <img class="img_capa_imovel" src="{{sugestao.imagens.all.0.img.url}}">
-                            <div class="informacoes_imoveis">
-                            <a class="a_none" href="{% url 'imovel' sugestao.id %}"><h4 class="valor">R$ {{sugestao.valor}}</h4></a>
-                            <p>{{sugestao.rua}}, {{sugestao.cidade}}</p>
-                            <br>
-                            <img width="7%" src="{% static 'plataforma/img/heart.png' %}">
-                            </div>
-                        
-                        </div>
-
-                    </div>
-                {% endfor %}
+                  {% for sugestao in sugestoes %}
+                      <div class="col-md-6 col-lg-6 mt-2 mr-auto ml-auto">
+                          <div class="card_imovel w-75 mr-auto ml-auto">
+                              <img class="img_capa_imovel" src="{{sugestao.imagens.all.0.img.url}}">
+                              <div class="informacoes_imoveis">
+                              <a class="a_none" href="{% url 'imovel' sugestao.id %}"><h4 class="valor">R$ {{sugestao.valor}}</h4></a>
+                              <p>{{sugestao.rua}}, {{sugestao.cidade}}</p>
+                              <br>
+                              <img width="7%" src="{% static 'plataforma/img/heart.png' %}">
+                              </div>
+                          
+                          </div>
+                      </div>
+                  {% endfor %}
             </div>
         </div>
         {% else %}
@@ -94,8 +99,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title titulo_filtrar" id="exampleModalLabel">Agendar visita</h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-                    </button>
+                      <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                 </div>
                 <div class="modal-body">
                     <form action="{% url 'agendar_visitas' %}" method="POST">{% csrf_token %}
@@ -115,7 +121,7 @@
                         </select>
                         <input name="id_imovel" type="hidden" value="{{imovel.id}}">
                         <br>
-                        <input  class="btn_agendar" type="submit" value="AGENDAR">
+                        <input  class="btn_agendar mb-3" type="submit" value="AGENDAR">
                     </form> 
                 </div>
                 
@@ -123,80 +129,83 @@
         </div>
     </div>
 
-              <!-- Footer -->
-              <footer class="back-dark text-center text-white mt-4">
-                <!-- Grid container -->
-                <div class="container p-4">
-                  <!-- Section: Social media -->
-                  <section class="mb-4">
-                    <!-- Instagram -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-          
-                    <!-- Linkedin -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                      ><i class="fab fa-linkedin-in"></i
-                    ></a>
-          
-                    <!-- Facebook -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-facebook-f"></i
-                    ></a>
-                  </section>
-                  <!-- Section: Social media -->
-          
-                  <!-- Section: Links -->
-                  <section class="text-center">
-                    <!--Grid row-->
-                    <div class="row">
-    
-          
-                      <!--Grid column-->
-                      <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-capitalize">Compania imobiBR</h5>
-          
-                        <ul class="list-unstyled mb-0">
-                          <li class="mt-2">
-                            <a href="#!" class="text-white link-contact">
-                              A ImobiBR procura trazer imóveis variados com preços acessíveis e de ótima qualidade, em regiões com localidades estratégicos.
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <!--Grid column-->
-                      <!--Grid column-->
-                      <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">Contato</h5>
-          
-                        <ul class="list-unstyled mb-0">
-                          <li class="mt-2">
-                            <a href="#" class="text-white link-contact"><i class="fas fa-building"></i> Rua Azefredo, SP, Brasil</a>
-                          </li>
-                          <li  class="mt-1">
-                            <a href="#" class="text-white link-contact"><i class="fas fa-envelope me-3"></i>
-                              imobibr@org.com</a>
-                          </li>
-                          <li class="mt-1">
-                            <a href="#" class="text-white link-contact"><i class="fas fa-phone me-3"></i> + 55 11 94521-4521</a>
-                          </li>
-                        </ul>
-                      </div>
-                      <!--Grid column-->
-                    </div>
-                    <!--Grid row-->
-                  </section>
-                  <!-- Section: Links -->
-                </div>
-                <!-- Grid container -->
-          
-                <!-- Copyright -->
-                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                  © 2021 Copyright
-                  <a class="text-white" href="">imobibr.com</a>
-                </div>
-                <!-- Copyright -->
-              </footer>
-              <!-- Footer -->
+            <!-- Footer -->
+<footer class="text-center text-lg-start bg_dark  mt-3 text_light">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-dark btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+  
+      <!-- Instagram -->
+      <a class="btn btn-dark btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+  
+      <!-- Linkedin -->
+      <a class="btn btn-dark btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+  
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-12 col-xl-6 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-home"></i> ImobiBR
+            </h6>
+            <p>
+              A ImobiBR procura trazer imóveis variados com preços acessíveis e de ótima qualidade, em regiões com localidades estratégicos.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-6 col-lg-12 col-xl-6 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fas fa-home me-3"></i> Rua Azefredo, SP, Brasil</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              imobibr@org.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i>  + 55 11 94521-4521</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="#">ImobiBR</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+  
+  <script src="https://kit.fontawesome.com/dae11ab094.js" crossorigin="anonymous"></script>
+  
+
+              <script src="{% static 'plataforma/vendors/jquery/jquery.min.js' %}"></script>
+              <script src="{% static 'plataforma/vendors/bootstrap/bootstrap.min.js' %}"></script>
+              <script src="{% static 'plataforma/vendors/owl-carousel/js/owl.carousel.min.js' %}"></script>
+              <script src="{% static 'plataforma/vendors/aos/js/aos.js' %}"></script>
+              <script src="{% static 'plataforma/js/landingpage.js' %}"></script>
 
 {% endblock  %}

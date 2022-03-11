@@ -6,7 +6,8 @@ from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
 
 # Create your views here.
-
+def index(request):
+    return render(request, 'index.html')
 
 @login_required(login_url='/auth/logar')
 def home(request):
@@ -24,7 +25,6 @@ def home(request):
             tipo = ['A', 'C']
 
 
-@login_required(login_url='/auth/logar/')
 def home(request):
     preco_minimo = request.GET.get('preco_minimo')
     preco_maximo = request.GET.get('preco_maximo')
@@ -55,7 +55,7 @@ def home(request):
         
     return render(request, 'home.html', {'page': page, 'count' : imoveis_paginator.count, 'cidades': cidades})
 
-
+@login_required(login_url='/auth/logar/')
 def imovel(request, id):
     imovel = get_object_or_404(Imovei, id=id)
     sugestoes = Imovei.objects.filter(cidade=imovel.cidade).exclude(id=id)[:2]
@@ -80,6 +80,7 @@ def agendar_visitas(request):
     return redirect('/agendamentos')
 
 
+@login_required(login_url='/auth/logar')
 def agendamentos(request):
     visitas = Visitas.objects.filter(usuario=request.user)
     return render(request, "agendamentos.html", {'visitas': visitas})

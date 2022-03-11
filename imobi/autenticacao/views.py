@@ -60,7 +60,7 @@ def cadastro(request):
 def logar(request):
     if request.method == 'GET':
         if request.user.is_authenticated:
-            return redirect('/')
+            return redirect('/home.html')
         return render(request, 'logar.html')
     elif request.method == 'POST':
         username = request.POST.get('username')
@@ -76,7 +76,7 @@ def logar(request):
             return redirect('/auth/logar')
         else:
             auth.login(request, usuario)
-            return redirect('/')
+            return redirect('/home')
 
 
 def sair(request):

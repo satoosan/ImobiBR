@@ -1,0 +1,261 @@
+{% load static %}
+
+{% block 'head' %}
+<title>Simple landing page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.theme.default.css' %}">
+  <link rel="stylesheet" href="{% static 'plataforma/vendors/mdi/css/materialdesignicons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plataforma/vendors/aos/css/aos.css' %}">
+  <link rel="stylesheet" href="{% static 'plataforma/css/style.min.css' %}">
+{% endblock  %}
+
+{% block 'body' %}
+<body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
+  <header id="header-section">
+    <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+    <div class="container">
+      <div class="navbar-brand-wrapper d-flex w-100">
+        <img src="{% static 'plataforma\img\logo.svg' %}" alt="Logo">
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="mdi mdi-menu navbar-toggler-icon"></span>
+        </button> 
+      </div>
+      <div class="collapse navbar-collapse navbar-menu-wrapper" id="navbarSupportedContent">
+        <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+          <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
+            <div class="navbar-collapse-logo">
+              <img src="{% static 'plataforma\img\logo.svg' %}" alt="Logo">
+            </div>
+            <button class="navbar-toggler close-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#header-section">Inicío <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#features-section">Sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#digital-marketing-section">Serviços</a>  
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#feedback-section">Creators</a>
+          </li>
+          <li class="nav-item btn-contact-us pl-4 pl-lg-0">
+            <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Nos Contate</button>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    </nav>   
+  </header>
+  <div class="banner" >
+    <div class="container">
+      <h1 class="font-weight-semibold">Encontre os melhores preços aqui na <br>ImobiBR.</h1>
+      <h6 class="font-weight-normal text-muted pb-3">Agende já sua visita, sem burocracia ou enrolação!</h6>
+      <div>
+        <button class="btn btn-opacity-light mr-1 font-weight-semibold">Visite já</button>
+        <button class="btn btn-opacity-dark ml-1 font-weight-semibold">Reserve já</button>
+      </div>
+        <img src="{% static 'plataforma/img/bg-inicio.png' %}" width="477px" height="333px" alt="" class="img-fluid">
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <div class="container">
+      <section class="features-overview" id="features-section" >
+        <div class="content-header">
+          <h2>Como nós trabalhamos?</h2>
+          <h6 class="section-subtitle text-muted">Trabalhamos com uma equipe multificional<br>sempre disposta a servir o melhor para o cliente.</h6>
+        </div>
+        <div class="d-md-flex justify-content-between">
+          <div class="grid-margin d-flex justify-content-start">
+            <div class="features-width">
+              <img src="{% static 'plataforma\img\icon1.png' %}" width="100px" alt="" class="img-icons">
+              <h5 class="py-3">Agende em<br>qualquer lugar</h5>
+              <p class="text-muted">Mais fácil do que nunca, no conforto de sua casa, agende já pelo seu smartphone!</p>
+              <a href="#"><p class="readmore-link">Veja mais!</p></a>  
+            </div>
+          </div>
+          <div class="grid-margin d-flex justify-content-center">
+            <div class="features-width">
+              <img src="{% static 'plataforma\img\icon2.png' %}" width="100px" alt="" class="img-icons">
+              <h5 class="py-3">Ofertas e <br>Promoções</h5>
+              <p class="text-muted">Na ImobiBR, sempre terá alguma oferta, ou promoção que fará com que o preço sempre esteja acessível</p>
+              <a href="#"><p class="readmore-link">Veja mais!</p></a>
+            </div>
+          </div>
+          <div class="grid-margin d-flex justify-content-end">
+            <div class="features-width">
+              <img src="{% static 'plataforma\img\icon3.png' %}" width="100px" alt="" class="img-icons">
+              <h5 class="py-3">Atedimento<br>Rápido</h5>
+              <p class="text-muted">Qualquer dúvida? Chame os nossos atendentes, é rápido e fácil!</p>
+              <a href="#"><p class="readmore-link">Veja mais!</p></a>
+            </div>
+          </div>
+        </div>
+      </section>     
+      <section class="digital-marketing-service" id="digital-marketing-section">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-7 grid-margin grid-margin-lg-0" data-aos="fade-right">
+            <h3 class="m-0">Oferecemos uma gama completa<br>de Serviços para agendamento de imóveis</h3>
+            <div class="col-lg-7 col-xl-6 p-0">
+              <p class="py-4 m-0 text-muted">Agende já seu imóvel, com preços acessíveis que cabem no seu bolço.</p>
+              <p class="font-weight-medium text-muted">Não perca as ofertas e promoções semanais aqui na ImobiBR!</p>
+            </div>    
+          </div>
+          <div class="col-12 col-lg-5 p-0 img-digital grid-margin grid-margin-lg-0" data-aos="fade-left">
+            <img src="{% static 'plataforma\img\icon4.png' %}" alt="" class="img-fluid">
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-7 text-center flex-item grid-margin" data-aos="fade-right">
+            <img src="{% static 'plataforma\img\icon5.png' %}" alt="" class="img-fluid">
+          </div>
+          <div class="col-12 col-lg-5 flex-item grid-margin" data-aos="fade-left">
+            <h3 class="m-0">Imóveis com <br>localizações estratégicas!</h3>
+            <div class="col-lg-9 col-xl-8 p-0">
+              <p class="py-4 m-0 text-muted">Encontre casas e apartamentos do seu sonho!</p>
+              <p class="pb-2 font-weight-medium text-muted">Em regiões com pontos turísticos e muito mais...</p>
+            </div>
+            <button class="btn btn-info">Veja mais</button>
+          </div>
+        </div>
+      </section>     
+      <section class="customer-feedback" id="feedback-section">
+        <div class="row">
+          <div class="col-12 text-center pb-5">
+            <h2>Creators da ImobiBR</h2>
+            <h6 class="section-subtitle text-muted m-0">Criado pelos estudantes de TADS na Uninove.</h6>
+          </div>
+          <div class="owl-carousel owl-theme grid-margin">
+              <div class="card customer-cards">
+                <div class="card-body">
+                  <div class="text-center">
+                    <img src="https://i.pinimg.com/474x/15/17/27/1517274fd3ef99ee42cbd8b4fff5ac00.jpg" width="89" height="89" alt="" class="img-customer">
+                    <p class="m-0 py-3 text-muted">Não faço nada que não preciso. E, quando preciso, faço rapidamente.</p>
+                    <div class="content-divider m-auto"></div>
+                    <h6 class="card-title pt-3">Luan Costa</h6>
+                    <h6 class="customer-designation text-muted m-0">CEO</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="card customer-cards">
+                <div class="card-body">
+                  <div class="text-center">
+                    <img src="https://i.pinimg.com/564x/e4/19/eb/e419eb6d687c65a230c82074e739fdc1.jpg" width="89" height="89" alt="" class="img-customer">
+                    <p class="m-0 py-3 text-muted">A melhor forma de se domar um mistério, é com outro mistério.</p>
+                    <div class="content-divider m-auto"></div>
+                    <h6 class="card-title pt-3">Guilherme Kimura</h6>
+                    <h6 class="customer-designation text-muted m-0">Fundador</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="card customer-cards">
+                <div class="card-body">
+                  <div class="text-center">
+                    <img src="https://i.pinimg.com/originals/22/7e/6a/227e6a4e95351bffe7c058dbee5b176d.jpg" width="89" height="89" alt="" class="img-customer">
+                    <p class="m-0 py-3 text-muted">Quanto menos experiência se tem, mais se quer aparecer.</p>
+                    <div class="content-divider m-auto"></div>
+                    <h6 class="card-title pt-3">Renato Rossí</h6>
+                    <h6 class="customer-designation text-muted m-0">UX Designer</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="card customer-cards">
+                <div class="card-body">
+                  <div class="text-center">
+                    <img src="https://cdn.discordapp.com/attachments/897304698468565022/951930669129433108/EWiAdxfUEAAq5zL.jpg" width="89" height="89" alt="" class="img-customer">
+                    <p class="m-0 py-3 text-muted">Os limites só existem se você os deixar existir.</p>
+                    <div class="content-divider m-auto"></div>
+                    <h6 class="card-title pt-3">Layssa Yo-jong</h6>
+                    <h6 class="customer-designation text-muted m-0">Desenvolvedora Full-stack</h6>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact-us" id="contact-section">
+        <div class="contact-us-bgimage grid-margin" >
+          <div class="pb-4">
+            <h4 class="px-3 px-md-0 m-0" data-aos="fade-down">Você quer se tonar parceiro?</h4>
+            <h4 class="pt-1" data-aos="fade-down">Nos contate</h4>
+          </div>
+          <div data-aos="fade-up">
+            <button class="btn btn-rounded btn-outline-danger" data-toggle="modal" data-target="#exampleModal">Nos contate</button>
+          </div>          
+        </div>
+      </section>
+      <section class="contact-details" id="contact-details-section">
+        <div class="row text-center text-md-center">
+          <div class="col-12 col-md-4 col-lg-4 grid-margin">
+            <img src="{% static 'plataforma\img\logo.svg' %}" alt="" class="pb-2">
+            <div class="pt-2">
+              <p class="text-muted m-0">imobibr@org.com</p>
+              <p class="text-muted m-0">+ 55 11 94521-4521</p>
+            </div>         
+          </div>
+          <div class="col-12 col-md-4 col-lg-4 grid-margin">
+            <h5 class="pb-2">
+              Nossas Diretrizes</h5>
+            <a href="#"><p class="m-0 pb-2">Terms</p></a>   
+            <a href="#" ><p class="m-0 pt-1 pb-2">Privacy policy</p></a> 
+            <a href="#"><p class="m-0 pt-1 pb-2">Cookie Policy</p></a> 
+            <a href="#"><p class="m-0 pt-1">Discover</p></a> 
+          </div>
+          <div class="col-12 col-md-4 col-lg-4 grid-margin">
+              <h5 class="pb-2">Nosso Endereço</h5>
+              <p class="text-muted">Rua Azefredo<br>SP, Brasil</p>
+              <div class="d-flex justify-content-center justify-content-md-center">
+                <a href="#"><span class="mdi mdi-facebook"></span></a>
+                <a href="#"><span class="mdi mdi-instagram"></span></a>
+                <a href="#"><span class="mdi mdi-linkedin"></span></a>
+              </div>
+          </div>
+        </div>  
+      </section>
+      <footer class="border-top">
+        <p class="text-center text-muted pt-4">Copyright © 2022<a href="#" class="px-1">ImobiBR.</a>All rights reserved.</p>
+      </footer>
+      <!-- Modal for Contact - us Button -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">Contact Us</h4>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="Name">Name</label>
+                  <input type="text" class="form-control" id="Name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                  <label for="Email">Email</label>
+                  <input type="email" class="form-control" id="Email-1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label for="Message">Message</label>
+                  <textarea class="form-control" id="Message" placeholder="Enter your Message"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success" >Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+  <script src="{% static 'plataforma/vendors/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'plataforma/vendors/bootstrap/bootstrap.min.js' %}"></script>
+  <script src="{% static 'plataforma/vendors/owl-carousel/js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'plataforma/vendors/aos/js/aos.js' %}"></script>
+  <script src="{% static 'plataforma/js/landingpage.js' %}"></script>
+{% endblock  %}

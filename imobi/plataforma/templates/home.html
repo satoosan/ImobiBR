@@ -3,6 +3,11 @@
 
 {% block 'head' %}
 
+<link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.theme.default.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/vendors/mdi/css/materialdesignicons.min.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/vendors/aos/css/aos.css' %}">
+<link rel="stylesheet" href="{% static 'plataforma/css/style.min.css' %}">
 <link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}">
 
 {% endblock  %}
@@ -15,10 +20,15 @@
     data-target="#exampleModal">
     FILTRAR
     </button>
-
+    {% if user.is_authenticated %}
     <div class="user-col mt-1">
-      <p class="user-info">Seja bem vindo(a) <span class="text-uppercase fw-bold">{{user.username}}</span>!</p>
+      
+      <p class="user-info">Seja bem vindo(a) 
+        <span class="text-uppercase fw-bold">{{user.username}}</span>!
+        
+      </p>
     </div>
+    {% endif %}
   <div class="row">
 
     {% for imovel in page.object_list %}
@@ -48,8 +58,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title titulo_filtrar" id="exampleModalLabel">FILTRAR</h5>
-        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
-          {% comment %} <span aria-hidden="true">&times;</span> {% endcomment %}
+        <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -85,7 +95,7 @@
           <input name="tipo" type="checkbox" value="C"><label>&nbspCasa</label>
           <br>
           <br>
-          <input class="btn_filtrar_modal" type="submit" value="FILTRAR">
+          <input class="btn_filtrar_modal mb-3" type="submit" value="FILTRAR">
         </form>
       </div>
       
@@ -99,101 +109,97 @@
 
             {% if page.has_previous %}
               <li class="page-item">
-                <a class="page-link bg-dark" href="{% url 'home' %}?page={{ page.previous_page_number }}">Anterior</a>
+                <a class="page-link btn-link" href="{% url 'home' %}?page={{ page.previous_page_number }}">Anterior</a>
               </li>
             {% else %}
               <li class="page-item disabled">
-                <a class="page-link bg-dark" href="#">Anterior</a>
+                <a class="page-link " href="#">Anterior</a>
               </li>
             {%endif %}
 
             {% if page.has_next %}
               <li class="page-item">
-                <a class="page-link bg-dark" href="{% url 'home' %}?page={{ page.next_page_number }}">Próximo</a>
+                <a class="page-link btn-link" href="{% url 'home' %}?page={{ page.next_page_number }}">Próximo</a>
               </li>
             {% else %}
               <li class="page-item disabled">
-                <a class="page-link bg-dark" href="">Próximo</a>
+                <a class="page-link " href="">Próximo</a>
               </li>
             {%endif %}
 
           </ul>
         </nav>
         
-          <!-- Footer -->
-          <footer class="back-dark text-center text-white mt-4">
-            <!-- Grid container -->
-            <div class="container p-4">
-              <!-- Section: Social media -->
-              <section class="mb-4">
-                <!-- Instagram -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                  ><i class="fab fa-instagram"></i
-                ></a>
-      
-                <!-- Linkedin -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                  ><i class="fab fa-linkedin-in"></i
-                ></a>
-      
-                <!-- Facebook -->
-                <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              </section>
-              <!-- Section: Social media -->
-      
-              <!-- Section: Links -->
-              <section class="text-center">
-                <!--Grid row-->
-                <div class="row">
+        <!-- Footer -->
+<footer class="text-center text-lg-start bg_dark  text_light">
+<!-- Grid container -->
+<div class="container p-4">
+  <!-- Section: Social media -->
+  <section class="mb-4">
+    <!-- Facebook -->
+    <a class="btn btn-dark btn-floating m-1" href="#!" role="button"
+      ><i class="fab fa-facebook-f"></i
+    ></a>
 
-      
-                  <!--Grid column-->
-                  <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-capitalize">Compania imobiBR</h5>
-      
-                    <ul class="list-unstyled mb-0">
-                      <li class="mt-2">
-                        <a href="#!" class="text-white link-contact">
-                          A ImobiBR procura trazer imóveis variados com preços acessíveis e de ótima qualidade, em regiões com localidades estratégicos. 
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <!--Grid column-->
-                  <!--Grid column-->
-                  <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Contato</h5>
-      
-                    <ul class="list-unstyled mb-0">
-                      <li class="mt-2">
-                        <a href="#" class="text-white link-contact"><i class="fas fa-building"></i> Rua Azefredo, SP, Brasil</a>
-                      </li>
-                      <li  class="mt-1">
-                        <a href="#" class="text-white link-contact"><i class="fas fa-envelope me-3"></i>
-                          imobibr@org.com</a>
-                      </li>
-                      <li class="mt-1">
-                        <a href="#" class="text-white link-contact"><i class="fas fa-phone me-3"></i> + 55 11 94521-4521</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <!--Grid column-->
-                </div>
-                <!--Grid row-->
-              </section>
-              <!-- Section: Links -->
-            </div>
-            <!-- Grid container -->
-      
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-              © 2021 Copyright
-              <a class="text-white" href="">imobibr.com</a>
-            </div>
-            <!-- Copyright -->
-          </footer>
-          <!-- Footer -->
+    <!-- Instagram -->
+    <a class="btn btn-dark btn-floating m-1" href="#!" role="button"
+      ><i class="fab fa-instagram"></i
+    ></a>
+
+    <!-- Linkedin -->
+    <a class="btn btn-dark btn-floating m-1" href="#!" role="button"
+      ><i class="fab fa-linkedin-in"></i
+    ></a>
+
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-12 col-xl-6 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-home"></i> ImobiBR
+          </h6>
+          <p>
+            A ImobiBR procura trazer imóveis variados com preços acessíveis e de ótima qualidade, em regiões com localidades estratégicos.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-6 col-lg-12 col-xl-6 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p><i class="fas fa-home me-3"></i> Rua Azefredo, SP, Brasil</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            imobibr@org.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i>  + 55 11 94521-4521</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="#">ImobiBR</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<script src="https://kit.fontawesome.com/dae11ab094.js" crossorigin="anonymous"></script>
 
 {% endblock %}
