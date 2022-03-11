@@ -67,6 +67,3 @@ Dentro do formulário coloque os dados adicionados anteriormente, e voilá! Voc�
 Dentro do Django Admin, é possível, adicionar novas Ruas, Imoveis, Visitas e etc... Lembrando que isso pode influenciar no front-end. 
 
 ##
-
-### Preview
-<img src="https://github.com/satoosan/Imobi-Pystackweek2.0/blob/main/preview/preview.gif?raw=true" width="500px">
