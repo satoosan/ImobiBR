@@ -12,11 +12,11 @@
 {% endblock %}
 {% block 'body' %}
 
-    <div class="text-center mt-5">
+    {% comment %} <div class="text-center mt-5">
         <a href="{% url 'index' %}" >
             <button class="btn btn-secondary font-weight-bold" >Voltar</button>
         </a>
-    <div>
+    <div> {% endcomment %}
 
   <script src="{% static 'plataforma/vendors/jquery/jquery.min.js' %}"></script>
   <script src="{% static 'plataforma/vendors/bootstrap/bootstrap.min.js' %}"></script>
