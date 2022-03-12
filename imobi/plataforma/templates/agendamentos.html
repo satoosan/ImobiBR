@@ -1,72 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block 'head' %}
-<link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.carousel.min.css' %}">
-<link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.theme.default.css' %}">
-<link rel="stylesheet" href="{% static 'plataforma/vendors/mdi/css/materialdesignicons.min.css' %}">
-<link rel="stylesheet" href="{% static 'plataforma/vendors/aos/css/aos.css' %}">
-<link rel="stylesheet" href="{% static 'plataforma/css/style.min.css' %}">
-<link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}">
-{% endblock  %}
-
+{% block 'head' %}{% endblock  %}
+{% block 'titulo' %}ImobiBR - Agendamentos{% endblock %}
 {% block 'body' %}
-
     <div class="container">
         <br>
         <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">img</th>
-                <th scope="col">Endereco</th>
-                <th scope="col">Dia/Hora</th>
-                <th scope="col">Status</th>
-                <th scope="col">Cancelar</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% if visitas %}
-                {% for visita in visitas %}
+            <thead>
                 <tr>
-                    <th><img width="80" src="{{visita.imovel.imagens.all.0}}"></th>
-                    <td>{{visita.imovel.rua}}, {{visita.imovel.cidade}}</td>
-                    <td>{{visita.dia}}/{{visita.horario}}</td>
-                    <td>
-                        
-                        {% if visita.status == "A" %}
-                            <span class="badge bg-info">Agendado</span>
-                        {% endif %}
-                        {% if visita.status == "F" %}
-                            <span class="badge bg-success">Finalizado</span>
-                        {% endif %}
-                        {% if visita.status == "C" %}
-                            <span class="badge bg-danger">Cancelado</span>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if visita.status == "A" %}
-                            <a href="{% url 'cancelar_agendamento' visita.id %}" class="btn btn-danger">CANCELAR</a>
-                        {% else %}
-                            <a href="" class="btn btn-danger disabled">CANCELAR</a>
-                        
-                        {% endif %}
-                    </td>
+                    <th scope="col">img</th>
+                    <th scope="col">Endereco</th>
+                    <th scope="col">Dia/Hora</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Cancelar</th>
                 </tr>
-                {% endfor %}
-            {%else%}
-                <div class="alert alert-danger" role="alert">
-                    <div class="text-center">
-                       <i class="fas fa-exclamation-triangle fs-5"></i>  <span class="ms-3 fs-5">Não há nenhum agendamento</span>
+            </thead>
+            <tbody>
+                {% if visitas %}
+                    {% for visita in visitas %}
+                        <tr>
+                            <th>
+                                <img width="80" src="{{ visita.imovel.imagens.all.0 }}">
+                            </th>
+                            <td>{{ visita.imovel.rua }}, {{ visita.imovel.cidade }}</td>
+                            <td>{{ visita.dia }}/{{ visita.horario }}</td>
+                            <td>
+                                {% if visita.status == "A" %}<span class="badge bg-info">Agendado</span>{% endif %}
+                                {% if visita.status == "F" %}<span class="badge bg-success">Finalizado</span>{% endif %}
+                                {% if visita.status == "C" %}<span class="badge bg-danger">Cancelado</span>{% endif %}
+                            </td>
+                            <td>
+                                {% if visita.status == "A" %}
+                                    <a href="{% url 'cancelar_agendamento' visita.id %}"
+                                       class="btn btn-danger">CANCELAR</a>
+                                {% else %}
+                                    <a href="" class="btn btn-danger disabled">CANCELAR</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-danger" role="alert">
+                        <div class="text-center">
+                            <i class="fas fa-exclamation-triangle fs-5"></i>  <span class="ms-3 fs-5">Não há nenhum agendamento</span>
+                        </div>
                     </div>
-                </div>
-            {%endif%}
-        </tbody>
-    </table>
+                {% endif %}
+            </tbody>
+        </table>
     </div>
-    
-    <script src="{% static 'plataforma/vendors/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'plataforma/vendors/bootstrap/bootstrap.min.js' %}"></script>
-    <script src="{% static 'plataforma/vendors/owl-carousel/js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'plataforma/vendors/aos/js/aos.js' %}"></script>
-    <script src="{% static 'plataforma/js/landingpage.js' %}"></script>
 {% endblock  %}

@@ -1,33 +1,13 @@
-.bg_dark{
-    background-color: #000 !important;
-}
-
-.text_light{
-    color: #fff !important;
-}
-
-.navbar-height{
-    height: 50px !important;
-}
+/* Navbar start */
 
 .btn-link{
     color: #000 !important;
     transition: 0.5s ease !important;
 }
-
 .btn-link:hover{
     background-color: #000 !important;
     color: #ffffff !important;
 }
-
-.bg_navbar {
-    background-color: #000 !important;
-}
-
-.toggle{
-    color: #ffffff !important;
-}
-
 .link{
     background: #000 !important;
     padding: 5px 10px !important;
@@ -35,80 +15,23 @@
     color: #fff !important;
     transition: 0.5s;
 }
-
 .link:hover{
     color: #ccc !important;
 }
 
-.btn-dark{
-    background-color: transparent !important;
-    border-color: #fff !important;
-    transition: 0.3s;
-}
+/* Navbar end */
 
-.btn-dark:hover{
-    background-color: #fff !important;
-    color: #000 !important;
-}
 
-.font_logo {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 25px;
-    display: inline;
-
-}
+/* Tag only (home.html) start*/
 
 .user-col{
     margin-top: -50px; 
     padding: 1.5em;
 }
-
 .user-info{
     text-align: center;
     font-size: 1.5em;
 }
-
-.card_imovel {
-    background-color: #050505;
-    width: 100%;
-    border-radius: 6px;
-}
-
-.card_imovel_interesse {
-    background-color: #050505;
-    width: 500px;
-    border-radius: 6px;
-}
-
-.img_capa_imovel {
-    width: 100%;
-    border-radius: 6px;
-}
-
-.img_capa_imovel_interesse {
-    margin: 5px;
-    padding: 2px 5px;
-    width: 100%;
-    border-radius: 6px;
-}
-
-.informacoes_imoveis {
-    padding: 20px;
-    color: white;
-}
-
-.informacoes_imoveis_interesse {
-    margin-top: 8px;
-    margin-left: -8px;
-    padding: 2px 5px;
-    color: white;
-}
-
-.valor {
-    font-weight: bold;
-    border-bottom: 1px solid white;
-}
-
 .btn_filtrar {
 
     border: none;
@@ -119,11 +42,47 @@
     font-weight: bold;
     transition: 0.5s;
 }
-
 .btn_filtrar:hover {
     background-color: #000;
     color: #fff;
 }
+
+/* Tag only (home.html) end*/
+
+/* Cards Imoveis start */
+
+.card_imovel {
+    background-color: #050505;
+    width: 100%;
+    border-radius: 6px;
+}
+.img_capa_imovel {
+    width: 100%;
+    border-radius: 6px;
+}
+.informacoes_imoveis {
+    padding: 20px;
+    color: white;
+}
+.valor {
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}
+.a_none {
+    text-decoration: none;
+    color: white;
+    transition: 0.5s;
+}
+.a_none:hover {
+
+    text-decoration: none;
+    color: rgb(155, 155, 155);
+
+}
+
+/* Cards Imoveis end */
+
+/* Modal start */
 
 .titulo_filtrar {
 
@@ -132,7 +91,6 @@
     font-size: 30px;
 
 }
-
 .btn_filtrar_modal {
 
     border: 2px solid #000000;
@@ -143,24 +101,14 @@
     padding: 5px;
     transition: 0.5s;
 }
-
 .btn_filtrar_modal:hover {
     background-color: #000000;
     color: #fff;
 }
 
-.a_none {
-    text-decoration: none;
-    color: white;
-    transition: 0.5s;
-}
+/* Modal end */
 
-.a_none:hover {
-
-    text-decoration: none;
-    color: rgb(155, 155, 155);
-
-}
+/*Tag only (imovel.html) start*/
 
 .titulo_especificacao {
     color: #000000;
@@ -169,7 +117,6 @@
     font-size: 25px;
     margin-left: -15px;
 }
-
 .titulo_interesse {
     color: #000000;
     font-weight: bold;
@@ -177,18 +124,15 @@
     font-size: 30px;
     margin-left: -15px;
 }
-
 .especificacao {
     text-align: center;
     margin-top: -9px;
     font-size: 25px;
     font-weight: bold;
 }
-
 .especificacao_endereco {
     font-size: 18px;
 }
-
 .btn_agendar_visita {
 
     border: 2px solid #000000;
@@ -199,11 +143,9 @@
     padding: 5px 10px 5px 10px;
 
 }
-
 .div_possivel_interesse {
     text-align: left;
 }
-
 .btn_agendar {
 
     border: none;
@@ -215,6 +157,7 @@
 
 }
 
+
 .btn_agendar:hover {
 
     text-decoration: none;
@@ -222,6 +165,24 @@
 
 }
 
-.link-contact{
-    text-decoration: none;
+/*Tag only (imovel.html) end*/
+
+/* Footer start*/
+
+.bg_dark{
+    background-color: #000 !important;
 }
+.text_light{
+    color: #fff !important;
+}
+.btn-dark{
+    background-color: transparent !important;
+    border-color: #fff !important;
+    transition: 0.3s;
+}
+.btn-dark:hover{
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+/* Footer end*/

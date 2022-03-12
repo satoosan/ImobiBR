@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.contrib import auth
+
+# libs email
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -85,4 +87,4 @@ def sair(request):
 
 
 def handler404(request, exception):
-    return render(request, 'not_found.html')
+    return render(request, 'status_code/not_found.html')

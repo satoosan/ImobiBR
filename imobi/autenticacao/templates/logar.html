@@ -1,62 +1,70 @@
 {% load static %}
 {% block 'head' %}
-<!-- Style -->
-<link rel="stylesheet" href="{% static 'autenticacao/css/style.css' %}">
-
-<link rel="stylesheet" href="{% static 'autenticacao/css/owl.carousel.min.css' %}">
-
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="{% static 'autenticacao/css/bootstrap.min.css' %}">
+    <title>Entre na ImobiBR</title>
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'autenticacao/css/style.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'autenticacao/css/owl.carousel.min.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="{% static 'autenticacao/css/bootstrap.min.css' %}">
 {% endblock %}
 {% block 'body' %}
-<div class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 order-md-2">
-          <img src="{% static 'autenticacao/img/bg-register.gif' %}" alt="Image" class="img-fluid">
-        </div>
-        <div class="col-md-6 contents">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <div class="mb-4">
-                {% if messages %}
-                {% for message in messages %}
-                <div class="alert {{message.tags}}">
-                    {{message}}
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <img src="{% static 'autenticacao/img/bg-register.gif' %}"
+                         alt="Image"
+                         class="img-fluid">
                 </div>
-                {% endfor %}
-                {% endif %}
-              <h3>Entre na <strong>ImobiBR</strong></h3>
-              <p class="mb-4">Explore os mais diversos imóveis aqui na <strong>ImobiBR!</strong></p>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                {% if messages %}
+                                    {% for message in messages %}<div class="alert {{ message.tags }}">{{ message }}</div>{% endfor %}
+                                {% endif %}
+                                <h3>
+                                    Entre na <strong>ImobiBR</strong>
+                                </h3>
+                                <p class="mb-4">
+                                    Explore os mais diversos imóveis aqui na <strong>ImobiBR!</strong>
+                                </p>
+                            </div>
+                            <form action="{% url 'logar' %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group first">
+                                    <label for="username"></label>
+                                    <input name="username"
+                                           type="text"
+                                           class="form-control"
+                                           id="username"
+                                           placeholder="Usuário">
+                                </div>
+                                <div class="form-group last mb-2">
+                                    <label for="password"></label>
+                                    <input name="senha"
+                                           type="password"
+                                           class="form-control"
+                                           id="password"
+                                           placeholder="Senha">
+                                </div>
+                                <div class="d-flex mb-2 align-items-center">
+                                    <span class="ml-auto"><a href="{% url 'cadastro' %}" class="forgot-pass">Ainda não tem uma conta?</a></span>
+                                </div>
+                                <input type="submit"
+                                       value="Entrar"
+                                       class="btn text-white btn-block btn-primary">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <form action="{% url 'logar' %}" method="post">{% csrf_token %}
-              <div class="form-group first">
-                <label for="username"></label>
-                <input name="username" type="text" class="form-control" id="username" placeholder="Usuário">
-
-              </div>
-              <div class="form-group last mb-2">
-                <label for="password"></label>
-                <input name="senha" type="password" class="form-control" id="password" placeholder="Senha">
-                
-              </div>
-              <div class="d-flex mb-2 align-items-center">
-                <span class="ml-auto"><a href="{% url 'cadastro' %}" class="forgot-pass">Ainda não tem uma conta?</a></span> 
-              </div>
-              <input type="submit" value="Entrar" class="btn text-white btn-block btn-primary">
-            </form>
-            </div>
-          </div>
-          
         </div>
-        
-      </div>
     </div>
-  </div>
-
-  
-  <script src="{% static 'autenticacao/js/jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static 'autenticacao/js/popper.min.js'%}"></script>
-  <script src="{% static 'autenticacao/js/bootstrap.min.js'%}"></script>
-  <script src="{% static 'autenticacao/js/main.js'%}"></script>
+    <script src="{% static 'autenticacao/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'autenticacao/js/popper.min.js'%}"></script>
+    <script src="{% static 'autenticacao/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'autenticacao/js/main.js'%}"></script>
 {% endblock %}

@@ -1,71 +1,87 @@
 {% load static %}
 <!Doctype html>
 <html lang="pt-BR">
-
-<head>
-    {% block 'head' %}{% endblock %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block 'titulo' %}{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'plataforma/home.css' %}">
-    <link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'plataforma/vendors/owl-carousel/css/owl.theme.default.css' %}">
-    <link rel="stylesheet" href="{% static 'plataforma/vendors/mdi/css/materialdesignicons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'plataforma/vendors/aos/css/aos.css' %}">
-    <link rel="stylesheet" href="{% static 'plataforma/css/style.min.css' %}">
-</head>
-
-<body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
-    <header id="header-section ">
-      <nav class="navbar navbar-expand-lg  bg_dark" id="navbar">
-      <div class="container ">
-        <div class="navbar-brand-wrapper d-flex w-100">
-          <img src="{% static 'plataforma\img\logo-invert.svg' %}" alt="Logo">
-          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="mdi mdi-menu navbar-toggler-icon toggle"></span>
-          </button> 
-        </div>
-        <div class="collapse navbar-collapse navbar-menu-wrapper " id="navbarSupportedContent">
-          <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
-            <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
-              <div class="navbar-collapse-logo">
-                <img src="{% static 'plataforma\img\logo.svg' %}" alt="Logo">
-              </div>
-              <button class="navbar-toggler close-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
-              </button>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link" href="{% url 'index' %}">Inicío <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link" href="#">Imoveis <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link" href="{% url 'agendamentos' %}">Agendamento</a>
-            </li>
-            {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link link" href="{% url 'sair' %}">Sair</a>  
-              </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link link" href="{% url 'logar' %}">Cadastrar/Entrar</a>  
-            </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div> 
-      </nav>   
-    </header>
-
-    {% block 'body' %}{% endblock %}
-
-    <script src="{% static 'plataforma/vendors/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'plataforma/vendors/bootstrap/bootstrap.min.js' %}"></script>
-    <script src="{% static 'plataforma/vendors/owl-carousel/js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'plataforma/vendors/aos/js/aos.js' %}"></script>
-    <script src="{% static 'plataforma/js/landingpage.js' %}"></script>
-</body>
-
+    <head>
+        {% block 'head' %}{% endblock %}
+        <meta charset="utf-8">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>
+            {% block 'titulo' %}{% endblock %}
+        </title>
+        <link rel="stylesheet"
+              href="{% static 'plataforma/vendors/owl-carousel/css/owl.carousel.min.css' %}">
+        <link rel="stylesheet"
+              href="{% static 'plataforma/vendors/owl-carousel/css/owl.theme.default.css' %}">
+        <link rel="stylesheet"
+              href="{% static 'plataforma/vendors/mdi/css/materialdesignicons.min.css' %}">
+        <link rel="stylesheet"
+              href="{% static 'plataforma/vendors/aos/css/aos.css' %}">
+        <link rel="stylesheet" href="{% static 'plataforma/css/style.min.css' %}">
+        <link rel="stylesheet" href="{% static 'plataforma/css/home.css' %}">
+    </head>
+    <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
+        <header id="header-section ">
+            <nav class="navbar navbar-expand-lg  bg_dark" id="navbar">
+                <div class="container ">
+                    <div class="navbar-brand-wrapper d-flex w-100">
+                        <img src="{% static 'plataforma\img\logo-invert.svg' %}" alt="Logo">
+                        <button class="navbar-toggler ml-auto"
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="mdi mdi-menu navbar-toggler-icon toggle"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-menu-wrapper "
+                         id="navbarSupportedContent">
+                        <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+                            <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
+                                <div class="navbar-collapse-logo">
+                                    <img src="{% static 'plataforma\img\logo.svg' %}" alt="Logo">
+                                </div>
+                                <button class="navbar-toggler close-button"
+                                        type="button"
+                                        data-toggle="collapse"
+                                        data-target="#navbarSupportedContent"
+                                        aria-controls="navbarSupportedContent"
+                                        aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                    <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link" href="{% url 'index' %}">Inicío <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link" href="#">Imoveis <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link link" href="{% url 'agendamentos' %}">Agendamento</a>
+                            </li>
+                            {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link link" href="{% url 'sair' %}">Sair</a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link link" href="{% url 'logar' %}">Cadastrar/Entrar</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        {% block 'body' %}{% endblock %}
+        <script src="https://kit.fontawesome.com/dae11ab094.js" crossorigin="anonymous"></script>
+        <script src="{% static 'plataforma/vendors/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'plataforma/vendors/bootstrap/bootstrap.min.js' %}"></script>
+        <script src="{% static 'plataforma/vendors/owl-carousel/js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'plataforma/vendors/aos/js/aos.js' %}"></script>
+        <script src="{% static 'plataforma/js/landingpage.js' %}"></script>
+    </body>
 </html>

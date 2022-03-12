@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pye8_79t3cj^&_nbe!$b*!4%79d77@@uj@=l^tftcy7a__(96m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -129,6 +129,8 @@ MESSAGE_TAGS = {
     constants.WARNING: 'alert-warning',
 }
 
+
+#config para enviar email
 from decouple import config
 
 DEFAULT_FROM_EMAIL = "tt2736994@gmail.com"
