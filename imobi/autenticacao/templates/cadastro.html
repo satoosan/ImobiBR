@@ -30,8 +30,7 @@
                                     Explore os mais diversos imóveis aqui na <span class="logo">ImobiBR!</span>
                                 </p>
                             </div>
-                            <form action="{% url 'cadastro' %}" method="post">
-                                {% csrf_token %}
+                            <form action="{% url 'cadastro' %}" method="post">{% csrf_token %}
                                 <div class="form-group first">
                                     <label for="username"></label>
                                     <input type="text"

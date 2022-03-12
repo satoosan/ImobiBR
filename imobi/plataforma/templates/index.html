@@ -392,8 +392,7 @@
                                 </h4>
                             </div>
                             <div class="modal-body">
-                                <form action="{% url 'index' %}" method="post">
-                                    {% csrf_token %}
+                                <form action="{% url 'index' %}" method="post">{% csrf_token %}
                                     <div class="form-group">
                                         <label for="Name">
                                             Nome
