@@ -4,10 +4,26 @@ from django.contrib.auth.decorators import login_required
 from .models import Imovei, Cidade, Visitas
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+from django.conf import settings
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    if request.method == 'GET':
+       return render(request, 'index.html') 
+    elif request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+            
+        html_content = message
+        text_content = strip_tags(html_content)
+            
+        email_send = EmailMultiAlternatives('Mensagem recebida de ' + name, text_content, settings.EMAIL_HOST_USER, ['tt2736994@gmail.com'])
+        email_send.send()
+        return render(request, 'index.html')
 
 @login_required(login_url='/auth/logar')
 def home(request):
@@ -91,3 +107,4 @@ def cancelar_agendamento(request, id):
     visitas.status = "C"
     visitas.save()
     return redirect('/agendamentos')
+

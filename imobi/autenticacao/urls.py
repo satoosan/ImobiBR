@@ -6,3 +6,4 @@ urlpatterns = [
     path('logar/', views.logar, name='logar'),
     path('sair/', views.sair, name='sair')
 ]
+

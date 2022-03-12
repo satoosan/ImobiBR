@@ -82,3 +82,7 @@ def logar(request):
 def sair(request):
     auth.logout(request)
     return redirect('/auth/logar')
+
+
+def handler404(request, exception):
+    return render(request, 'not_found.html')
