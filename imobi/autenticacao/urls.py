@@ -7,3 +7,4 @@ urlpatterns = [
     path('sair/', views.sair, name='sair')
 ]
 
+handler404 = "autenticacao.views.handler404"

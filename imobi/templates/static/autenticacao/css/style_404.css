@@ -1,0 +1,7 @@
+body{
+    background-image: url("../img/erro404.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: #000 !important;;
+}
