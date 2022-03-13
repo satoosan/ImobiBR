@@ -28,4 +28,4 @@ jobs:
         pip install pillow
     - name: Run Tests
       run: |
-        python imobi/manage.py runserver
+        python ./imobi/manage.py test
