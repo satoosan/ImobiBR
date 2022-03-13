@@ -1,8 +1,8 @@
 # ImobiBR - Projeto Semestral
 
 ### Integrantes 
-- Guilherme Kimura
-- Luan Pereira
+- [ Guilherme Kimura](https://github.com/satoosan)
+- [Luan Pereira](https://github.com/Luanc210)
 
 ## 
 
