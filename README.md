@@ -52,6 +52,8 @@ Por default o **DEBUG** está como True, se caso trocar para False, usar o coman
 ```Python
  python manage.py runserver --insecure
 ```
+Requirements necessary, Python 3.9 or higher. 
+
 ## 
 
 ## Referência 
