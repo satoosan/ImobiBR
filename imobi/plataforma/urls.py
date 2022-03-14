@@ -8,5 +8,6 @@ urlpatterns = [
     path('agendar_visitas', views.agendar_visitas, name="agendar_visitas"),
     path('agendamentos', views.agendamentos, name="agendamentos"),
     path('cancelar_agendamento/<str:id>',
-         views.cancelar_agendamento, name="cancelar_agendamento")
+         views.cancelar_agendamento, name="cancelar_agendamento"),
+    path('privacy-policy/', views.privacy_policy, name="privacy_policy"),
 ]

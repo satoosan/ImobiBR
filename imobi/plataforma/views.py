@@ -108,3 +108,5 @@ def cancelar_agendamento(request, id):
     visitas.save()
     return redirect('/agendamentos')
 
+def privacy_policy(request):
+    return render(request, "footer/privacy_policy.html")
