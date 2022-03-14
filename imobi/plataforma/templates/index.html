@@ -1,5 +1,7 @@
 {% load static %}
 {% block 'head' %}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ImobibR - Inicío</title>
     <!--Styles, Bootstrap-->
     <link rel="stylesheet" href="{% static 'plataforma/home.css' %}">
@@ -392,7 +394,8 @@
                                 </h4>
                             </div>
                             <div class="modal-body">
-                                <form action="{% url 'index' %}" method="post">{% csrf_token %}
+                                <form action="{% url 'index' %}" method="post">
+                                    {% csrf_token %}
                                     <div class="form-group">
                                         <label for="Name">
                                             Nome
