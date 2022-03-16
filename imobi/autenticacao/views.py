@@ -88,3 +88,6 @@ def sair(request):
 
 def handler404(request, exception):
     return render(request, 'status_code/not_found.html')
+
+def handler500(request):
+    return render(request, 'status_code/server_error.html')
