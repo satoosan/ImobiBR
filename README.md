@@ -16,7 +16,9 @@
 - Icons (Font Awesome);
 - Fonts (Google Fonts);
 - Host Images (CDN Discord);
-- Banco de Dados (SQLite).
+- Banco de Dados (SQLite);
+- Chatbot (Landbot);
+- PIP (Package Installer).
 
 ## 
 
@@ -44,7 +46,9 @@ python manage.py runserver
 - ('/cadastro') -> Formulário de **Cadastro**
 - ('/logar') -> Formulário de **Login**
 - handler404 -> Página não encontrada
+- handler50X -> Erro server
 - ('/admin') -> Área do **Adminitrador**
+- ('/privacy_policy') -> Privacidade política
 
 ##
 
