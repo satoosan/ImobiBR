@@ -45,6 +45,7 @@ def cadastro(request):
             messages.add_message(request, constants.SUCCESS,
                                  'Usuário cadastrado com sucesso!')
             
+            # Cadastro Concluido
             html_content = render_to_string('emails/cadastro_confirmado.html')
             text_content = strip_tags(html_content)
             
@@ -78,7 +79,14 @@ def logar(request):
             return redirect('/auth/logar')
         else:
             auth.login(request, usuario)
-            return redirect('/home')
+            # Promocoes
+            html_content = render_to_string('emails/promo_imovel.html')
+            text_content = strip_tags(html_content)
+            
+            email_send = EmailMultiAlternatives('Bem vindo ao ImobiBR', text_content, settings.EMAIL_HOST_USER, [usuario.email])
+            email_send.attach_alternative(html_content, 'text/html')
+            email_send.send()
+        return redirect('/home')
 
 
 def sair(request):
