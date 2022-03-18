@@ -71,13 +71,13 @@ def home(request):
         
     return render(request, 'home.html', {'page': page, 'count' : imoveis_paginator.count, 'cidades': cidades})
 
-@login_required(login_url='/auth/logar/')
+# @login_required(login_url='/auth/logar/')
 def imovel(request, id):
     imovel = get_object_or_404(Imovei, id=id)
     sugestoes = Imovei.objects.filter(cidade=imovel.cidade).exclude(id=id)[:2]
     return render(request, 'imovel.html', {'imovel': imovel, 'sugestoes': sugestoes})
 
-
+@login_required(login_url='/auth/logar')
 def agendar_visitas(request):
     usuario = request.user
     dia = request.POST.get('dia')
@@ -94,7 +94,6 @@ def agendar_visitas(request):
     visitas.save()
 
     return redirect('/agendamentos')
-
 
 @login_required(login_url='/auth/logar')
 def agendamentos(request):
