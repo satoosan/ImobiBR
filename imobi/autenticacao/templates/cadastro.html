@@ -49,7 +49,7 @@
                                            name="email"
                                            placeholder="Email">
                                 </div>
-                                <div class="form-group last mb-3">
+                                <div class="form-group">
                                     <label for="password"></label>
                                     <input type="password"
                                            class="form-control"
@@ -57,11 +57,20 @@
                                            name="senha"
                                            placeholder="Senha">
                                 </div>
+                                <div class="form-group last mb-3">
+                                    <label for="confir_password"></label>
+                                    <input type="confir_password"
+                                           class="form-control"
+                                           id="confir_password"
+                                           name="confirmar_senha"
+                                           placeholder="Confirmar Senha">
+                                </div>
                                 <div class="d-flex mb-2 align-items-center">
                                     <span class="ml-auto"><a href="{% url 'logar' %}" class="forgot-pass">Já tem uma conta?</a></span>
                                 </div>
                                 <input type="submit" value="Cadastrar" class="btn btn-block btn-primary">
                             </form>
+                            <a href="{% url 'index' %}"><button class="btn btn-block btn-primary">Voltar pro inicío</button></a>
                         </div>
                     </div>
                 </div>

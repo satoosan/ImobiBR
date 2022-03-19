@@ -21,7 +21,8 @@ def cadastro(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-
+        confirmar_senha = request.POST.get('confirmar_senha')
+        
         if len(username.strip()) == 0 or len(email.strip()) == 0 or len(senha.strip()) == 0:
             messages.add_message(request, constants.ERROR,
                                  'Preencha todos os campos')
@@ -33,27 +34,32 @@ def cadastro(request):
             messages.add_message(request, constants.ERROR,
                                  'Já existe um usuário com esse nome cadastrado')
             return redirect('/auth/cadastro')
-
+        
         try:
             user = User.objects.create_user(username=username,
                                             email=email,
                                             password=senha)
 
-            user.save()
+            if senha != confirmar_senha:
+                messages.add_message(request, constants.ERROR,
+                                 'As senhas digitadas não são iguais!')
+                return redirect('/auth/cadastro')
+            else: 
+                user.save()
 
-            messages.add_message(request, constants.SUCCESS,
+                messages.add_message(request, constants.SUCCESS,
                                  'Usuário cadastrado com sucesso!')
 
-            # Send E-mail
-            html_content = render_to_string('emails/cadastro_confirmado.html')
-            text_content = strip_tags(html_content)
+                # Send E-mail
+                html_content = render_to_string('emails/cadastro_confirmado.html')
+                text_content = strip_tags(html_content)
 
-            email_send = EmailMultiAlternatives(
-                'Cadastro Confirmado', text_content, settings.EMAIL_HOST_USER, [email])
-            email_send.attach_alternative(html_content, 'text/html')
-            email_send.send()
+                email_send = EmailMultiAlternatives(
+                    'Cadastro Confirmado', text_content, settings.EMAIL_HOST_USER, [email])
+                email_send.attach_alternative(html_content, 'text/html')
+                email_send.send()
 
-            return redirect('/auth/logar')
+                return redirect('/auth/logar')
         except:
             messages.add_message(request, constants.ERROR,
                                  'Erro interno do sistema')
@@ -72,7 +78,7 @@ def logar(request):
         usuario = auth.authenticate(username=username, password=senha)
         if not usuario:
             messages.add_message(request, constants.ERROR,
-                                 'Username ou senha inválidos')
+                                 'Usuário ou senha inválidos')
             return redirect('/auth/logar')
         else:
             auth.login(request, usuario)
