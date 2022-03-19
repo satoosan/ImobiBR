@@ -8,6 +8,8 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
+from django.contrib import messages
+from django.contrib.messages import constants
 
 # Create your views here.
 def index(request):
@@ -77,7 +79,6 @@ def imovel(request, id):
     sugestoes = Imovei.objects.filter(cidade=imovel.cidade).exclude(id=id)[:2]
     return render(request, 'imovel.html', {'imovel': imovel, 'sugestoes': sugestoes})
 
-@login_required(login_url='/auth/logar')
 def agendar_visitas(request):
     usuario = request.user
     dia = request.POST.get('dia')
@@ -92,8 +93,9 @@ def agendar_visitas(request):
     )
 
     visitas.save()
-
     return redirect('/agendamentos')
+
+    
 
 @login_required(login_url='/auth/logar')
 def agendamentos(request):

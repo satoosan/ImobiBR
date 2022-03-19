@@ -121,29 +121,36 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{% url 'agendar_visitas' %}" method="POST">
-                            {% csrf_token %}
-                            <label>Escolha um dia</label>
-                            <select name="dia" class="form-control">
-                                {% for dia in imovel.dias_visita.all %}
-                                    <option value="{{ dia }}">
-                                        {{ dia }}
-                                    </option>
-                                {% endfor %}
-                            </select>
-                            <br>
-                            <label>Escolha um horário</label>
-                            <select name="horario" class="form-control">
-                                {% for horario in imovel.horarios.all %}
-                                    <option value="{{ horario }}">
-                                        {{ horario }}
-                                    </option>
-                                {% endfor %}
-                            </select>
-                            <input name="id_imovel" type="hidden" value="{{ imovel.id }}">
-                            <br>
-                            <input class="btn_agendar mb-3" type="submit" value="AGENDAR">
-                        </form>
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'agendar_visitas' %}" method="POST">{% csrf_token %}
+                                <label>Escolha um dia</label>
+                                <select name="dia" class="form-control">
+                                    {% for dia in imovel.dias_visita.all %}
+                                        <option value="{{ dia }}">
+                                            {{ dia }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <br>
+                                <label>Escolha um horário</label>
+                                <select name="horario" class="form-control">
+                                    {% for horario in imovel.horarios.all %}
+                                        <option value="{{ horario }}">
+                                            {{ horario }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                                <input name="id_imovel" type="hidden" value="{{ imovel.id }}">
+                                <br>
+                                <input class="btn_agendar mb-3" type="submit" value="AGENDAR">
+                            </form>
+                        {%else%}
+                            <div class="alert alert-danger" role="alert">
+                                <div class="text-center">
+                                    <i class="fas fa-exclamation-triangle fs-5"></i>  <span class="ms-3 fs-5">E necessário estar logado, para realizar tal operação</span>
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

@@ -70,9 +70,6 @@ def logar(request):
         senha = request.POST.get('senha')
 
         usuario = auth.authenticate(username=username, password=senha)
-
-        print(senha)
-
         if not usuario:
             messages.add_message(request, constants.ERROR,
                                  'Username ou senha inválidos')
