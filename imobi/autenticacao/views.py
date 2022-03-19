@@ -5,12 +5,11 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from django.contrib import auth
 
-# libs email
+# libs send email
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
-
 
 
 def cadastro(request):
@@ -44,12 +43,13 @@ def cadastro(request):
 
             messages.add_message(request, constants.SUCCESS,
                                  'Usuário cadastrado com sucesso!')
-            
-            # Cadastro Concluido
+
+            # Send E-mail
             html_content = render_to_string('emails/cadastro_confirmado.html')
             text_content = strip_tags(html_content)
-            
-            email_send = EmailMultiAlternatives('Cadastro Confirmado', text_content, settings.EMAIL_HOST_USER, [email])
+
+            email_send = EmailMultiAlternatives(
+                'Cadastro Confirmado', text_content, settings.EMAIL_HOST_USER, [email])
             email_send.attach_alternative(html_content, 'text/html')
             email_send.send()
 
@@ -76,11 +76,13 @@ def logar(request):
             return redirect('/auth/logar')
         else:
             auth.login(request, usuario)
-            # Promocoes
+            
+            # Send e-mail
             html_content = render_to_string('emails/promo_imovel.html')
             text_content = strip_tags(html_content)
-            
-            email_send = EmailMultiAlternatives('Bem vindo ao ImobiBR', text_content, settings.EMAIL_HOST_USER, [usuario.email])
+
+            email_send = EmailMultiAlternatives(
+                'Bem vindo ao ImobiBR', text_content, settings.EMAIL_HOST_USER, [usuario.email])
             email_send.attach_alternative(html_content, 'text/html')
             email_send.send()
         return redirect('/home')
@@ -93,6 +95,7 @@ def sair(request):
 
 def handler404(request, exception):
     return render(request, 'status_code/not_found.html')
+
 
 def handler500(request):
     return render(request, 'status_code/server_error.html')

@@ -6,10 +6,10 @@
     <!-- Style -->
     <link rel="stylesheet" href="{% static 'autenticacao/css/style.css' %}">
     <link rel="stylesheet"
-          href="{% static 'autenticacao/css/owl.carousel.min.css' %}">
+          href="{% static 'autenticacao/css/bootstrap/owl.carousel.min.css' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
-          href="{% static 'autenticacao/css/bootstrap.min.css' %}">
+          href="{% static 'autenticacao/css/bootstrap/bootstrap.min.css' %}">
 {% endblock %}
 {% block 'body' %}
     <div class="content">
@@ -34,8 +34,7 @@
                                     Explore os mais diversos imóveis aqui na <strong>ImobiBR!</strong>
                                 </p>
                             </div>
-                            <form action="{% url 'logar' %}" method="post">
-                                {% csrf_token %}
+                            <form action="{% url 'logar' %}" method="post">{% csrf_token %}
                                 <div class="form-group first">
                                     <label for="username"></label>
                                     <input name="username"
@@ -65,8 +64,8 @@
             </div>
         </div>
     </div>
-    <script src="{% static 'autenticacao/js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'autenticacao/js/popper.min.js'%}"></script>
-    <script src="{% static 'autenticacao/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'autenticacao/js/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'autenticacao/js/bootstrap/popper.min.js'%}"></script>
+    <script src="{% static 'autenticacao/js/bootstrap/bootstrap.min.js'%}"></script>
     <script src="{% static 'autenticacao/js/main.js'%}"></script>
 {% endblock %}

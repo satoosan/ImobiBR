@@ -8,7 +8,7 @@ urlpatterns = [
     path('sair/', views.sair, name='sair')
 ]
 
-#error404
+#error not found
 handler404 = "autenticacao.views.handler404"
 
 #error server
