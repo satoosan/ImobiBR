@@ -23,23 +23,21 @@
     </head>
     <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
         <div class="loader-wrapper">
-                <div class="loader">
-                    <svg viewBox="0 0 80 80">
-                        <circle id="test" cx="40" cy="40" r="32"></circle>
-                    </svg>
-                </div>
-                
-                <div class="loader triangle">
-                    <svg viewBox="0 0 86 80">
-                        <polygon points="43 8 79 72 7 72"></polygon>
-                    </svg>
-                </div>
-                
-                <div class="loader">
-                    <svg viewBox="0 0 80 80">
-                        <rect x="8" y="8" width="64" height="64"></rect>
-                    </svg>
-                </div>
+            <div class="loader">
+                <svg viewBox="0 0 80 80">
+                    <circle id="test" cx="40" cy="40" r="32"></circle>
+                </svg>
+            </div>
+            <div class="loader triangle">
+                <svg viewBox="0 0 86 80">
+                    <polygon points="43 8 79 72 7 72"></polygon>
+                </svg>
+            </div>
+            <div class="loader">
+                <svg viewBox="0 0 80 80">
+                    <rect x="8" y="8" width="64" height="64"></rect>
+                </svg>
+            </div>
         </div>
         <div class="display">
             <header id="header-section ">
@@ -58,7 +56,7 @@
                             </button>
                         </div>
                         <div class="collapse navbar-collapse navbar-menu-wrapper "
-                            id="navbarSupportedContent">
+                             id="navbarSupportedContent">
                             <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
                                 <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
                                     <div class="navbar-collapse-logo">
@@ -126,18 +124,15 @@
         </script>
         <!-- Preloader -->
         <script>
-            
-            const loader = document.querySelector('.loader-wrapper');
-            const body = document.querySelector('#body');
-            const display = document.querySelector('.display');
             $(window).on("load",function(){
                 function show_popup(){
                     $(".loader-wrapper").fadeOut("slow")
+                    $(".loader-wrapper").css("display","none")
                     $("#body").css("overflow", "visible")
                     $(".display").css("display", "initial")
                 };
                     
-                window.setTimeout(show_popup, 2000); // 5 seconds
+                window.setTimeout(show_popup, 1500); // 5 seconds
             });
         </script>
     </body>

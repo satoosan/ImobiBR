@@ -98,13 +98,24 @@ def agendar_visitas(request):
 @login_required(login_url='/auth/logar')
 def agendamentos(request):
     visitas = Visitas.objects.filter(usuario=request.user)
-    return render(request, "agendamentos.html", {'visitas': visitas})
+    visitas_paginator = Paginator(visitas, 6)
+        
+    page_num = request.GET.get('page')
+    page = visitas_paginator.get_page(page_num)
+
+    return render(request, "agendamentos.html", {'page': page, 'count' : visitas_paginator.count, 'visitas': visitas})
 
 
 def cancelar_agendamento(request, id):
     visitas = get_object_or_404(Visitas, id=id)
     visitas.status = "C"
     visitas.save()
+    return redirect('/agendamentos')
+
+def limpar_agendamento(request, id):
+    visitas = get_object_or_404(Visitas, id=id)
+    if visitas.status == "C" or visitas.status == "A":
+        visitas.delete()
     return redirect('/agendamentos')
 
 def privacy_policy(request):

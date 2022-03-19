@@ -3,50 +3,80 @@
 {% block 'head' %}{% endblock  %}
 {% block 'titulo' %}ImobiBR - Agendamentos{% endblock %}
 {% block 'body' %}
-    <div class="container">
-        <br>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">img</th>
-                    <th scope="col">Endereco</th>
-                    <th scope="col">Dia/Hora</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Cancelar</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% if visitas %}
-                    {% for visita in visitas %}
-                        <tr>
-                            <th>
-                                <img width="80" src="{{ visita.imovel.imagens.all.0 }}">
-                            </th>
-                            <td>{{ visita.imovel.rua }}, {{ visita.imovel.cidade }}</td>
-                            <td>{{ visita.dia }}/{{ visita.horario }}</td>
-                            <td>
-                                {% if visita.status == "A" %}<span class="badge bg-info">Agendado</span>{% endif %}
-                                {% if visita.status == "F" %}<span class="badge bg-success">Finalizado</span>{% endif %}
-                                {% if visita.status == "C" %}<span class="badge bg-danger">Cancelado</span>{% endif %}
-                            </td>
-                            <td>
-                                {% if visita.status == "A" %}
-                                    <a href="{% url 'cancelar_agendamento' visita.id %}"
-                                       class="btn btn-danger">CANCELAR</a>
-                                {% else %}
-                                    <a href="" class="btn btn-danger disabled">CANCELAR</a>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                {% else %}
-                    <div class="alert alert-danger" role="alert">
-                        <div class="text-center">
-                            <i class="fas fa-exclamation-triangle fs-5"></i>  <span class="ms-3 fs-5">Não há nenhum agendamento</span>
+    <div class="display">
+        <div class="container">
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">img</th>
+                        <th scope="col">Endereco</th>
+                        <th scope="col">Dia/Hora</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Cancelar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if visitas %}
+                        {% for visita in page.object_list %}
+                            <tr>
+                                <th>
+                                    <img width="80" src="{{ visita.imovel.imagens.all.0 }}">
+                                </th>
+                                <td>{{ visita.imovel.rua }}, {{ visita.imovel.cidade }}</td>
+                                <td>{{ visita.dia }}/{{ visita.horario }}</td>
+                                <td>
+                                    {% if visita.status == "A" %}<span class="badge bg-info">Agendado</span>{% endif %}
+                                    {% if visita.status == "F" %}<span class="badge bg-success">Finalizado</span>{% endif %}
+                                    {% if visita.status == "C" %}<span class="badge bg-danger">Cancelado</span>{% endif %}
+                                </td>
+                                <td>
+                                    {% if visita.status == "A" %}
+                                        <a href="{% url 'cancelar_agendamento' visita.id %}"
+                                           class="btn btn-danger">CANCELAR</a>
+                                        <a href="{% url 'limpar_agendamento' visita.id %}"
+                                           class="btn btn-warning">Deletar</a>
+                                    {% else %}
+                                        <a href="" class="btn btn-danger disabled">CANCELAR</a>
+                                        <a href="{% url 'limpar_agendamento' visita.id %}"
+                                           class="btn btn-warning">Deletar</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <div class="alert alert-danger" role="alert">
+                            <div class="text-center">
+                                <i class="fas fa-exclamation-triangle fs-5"></i>  <span class="ms-3 fs-5">Não há nenhum agendamento</span>
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
-            </tbody>
-        </table>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
     </div>
+    <nav class="mt-5 mb-5">
+        <ul class="pagination justify-content-center">
+            {% if page.has_previous %}
+                <li class="page-item">
+                    <a class="page-link btn-link"
+                       href="{% url 'agendamentos' %}?page={{ page.previous_page_number }}">Anterior</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link " href="#">Anterior</a>
+                </li>
+            {% endif %}
+            {% if page.has_next %}
+                <li class="page-item">
+                    <a class="page-link btn-link"
+                       href="{% url 'agendamentos' %}?page={{ page.next_page_number }}">Próximo</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link " href="">Próximo</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 {% endblock  %}

@@ -108,7 +108,9 @@
     background-color: #000000;
     color: #fff;
 }
-
+.modal-content{
+    margin: 50px auto 0 auto !important;
+}
 /* Modal end */
 
 /*Tag only (imovel.html) start*/
@@ -189,3 +191,4 @@
 }
 
 /* Footer end*/
+
