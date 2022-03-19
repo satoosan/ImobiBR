@@ -57,6 +57,7 @@ Por default o **DEBUG** está como True, se caso trocar para False, usar o coman
  python manage.py runserver --insecure
 ```
 Requirements necessary, Python 3.9 or higher. 
+
 Browser Support: Edge 11, Firefox, Chrome (better performance), Safari and Opera.
 ## 
 
