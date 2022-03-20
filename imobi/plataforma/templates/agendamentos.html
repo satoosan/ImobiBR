@@ -6,53 +6,55 @@
     <div class="display">
         <div class="container">
             <br>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">img</th>
-                        <th scope="col">Endereco</th>
-                        <th scope="col">Dia/Hora</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Cancelar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if visitas %}
-                        {% for visita in page.object_list %}
+            {% if visitas %}
+                <div class="table-responsive-xl">
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <th>
-                                    <img width="80" src="{{ visita.imovel.imagens.all.0 }}">
-                                </th>
-                                <td>{{ visita.imovel.rua }}, {{ visita.imovel.cidade }}</td>
-                                <td>{{ visita.dia }}/{{ visita.horario }}</td>
-                                <td>
-                                    {% if visita.status == "A" %}<span class="badge bg-info">Agendado</span>{% endif %}
-                                    {% if visita.status == "F" %}<span class="badge bg-success">Finalizado</span>{% endif %}
-                                    {% if visita.status == "C" %}<span class="badge bg-danger">Cancelado</span>{% endif %}
-                                </td>
-                                <td>
-                                    {% if visita.status == "A" %}
-                                        <a href="{% url 'cancelar_agendamento' visita.id %}"
-                                           class="btn btn-danger">CANCELAR</a>
-                                        <a href="{% url 'limpar_agendamento' visita.id %}"
-                                           class="btn btn-warning">Deletar</a>
-                                    {% else %}
-                                        <a href="" class="btn btn-danger disabled">CANCELAR</a>
-                                        <a href="{% url 'limpar_agendamento' visita.id %}"
-                                           class="btn btn-warning">Deletar</a>
-                                    {% endif %}
-                                </td>
+                                <th scope="col">img</th>
+                                <th scope="col">Endereco</th>
+                                <th scope="col">Dia/Hora</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Cancelar</th>
                             </tr>
-                        {% endfor %}
-                    {% else %}
-                        <div class="alert alert-danger" role="alert">
-                            <div class="text-center">
-                                <i class="fas fa-exclamation-triangle fs-5"></i>  <span class="ms-3 fs-5">Não há nenhum agendamento</span>
-                            </div>
-                        </div>
-                    {% endif %}
-                </tbody>
-            </table>
+                        </thead>
+                        <tbody>
+                            {% for visita in page.object_list %}
+                                <tr>
+                                    <th>
+                                        <img width="80" src="{{ visita.imovel.imagens.all.0 }}">
+                                    </th>
+                                    <td>{{ visita.imovel.rua }}, {{ visita.imovel.cidade }}</td>
+                                    <td>{{ visita.dia }}/{{ visita.horario }}</td>
+                                    <td>
+                                        {% if visita.status == "A" %}<span class="badge bg-info">Agendado</span>{% endif %}
+                                        {% if visita.status == "F" %}<span class="badge bg-success">Finalizado</span>{% endif %}
+                                        {% if visita.status == "C" %}<span class="badge bg-danger">Cancelado</span>{% endif %}
+                                    </td>
+                                    <td>
+                                        {% if visita.status == "A" %}
+                                            <a href="{% url 'cancelar_agendamento' visita.id %}"
+                                               class="btn btn-danger">CANCELAR</a>
+                                            <a href="{% url 'limpar_agendamento' visita.id %}"
+                                               class="btn btn-warning">Deletar</a>
+                                        {% else %}
+                                            <a href="" class="btn btn-danger disabled">CANCELAR</a>
+                                            <a href="{% url 'limpar_agendamento' visita.id %}"
+                                               class="btn btn-warning">Deletar</a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="alert alert-danger" role="alert">
+                    <div class="text-center">
+                        <i class="fas fa-exclamation-triangle fs-5"></i>  <span class="ms-3 fs-5">Não há nenhum agendamento</span>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
     <nav class="mt-5 mb-5">
