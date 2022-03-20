@@ -59,7 +59,12 @@ Por default o **DEBUG** está como True, se caso trocar para False, usar o coman
 Requirements necessary, Python 3.9 or higher. 
 
 Browser Support: Edge 11, Firefox, Chrome (better performance), Safari and Opera.
-## 
+##
+
+## Segurança da Informação  
+
+Seguindo os protocolos da segurança da informação, no formulário de cadastro há uma confirmação
+de senha e verificação de quantidade minima de caracteres que tem, que colocar na caixa de texto.  
 
 ## Referência 
 
