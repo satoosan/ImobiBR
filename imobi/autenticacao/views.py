@@ -44,6 +44,10 @@ def cadastro(request):
                 messages.add_message(request, constants.ERROR,
                                  'As senhas digitadas não são iguais!')
                 return redirect('/auth/cadastro')
+            elif len(senha.strip()) < 5:
+                messages.add_message(request, constants.ERROR,
+                                'A senha tem que ter no minimo 6 caracteres')
+                return redirect('/auth/cadastro')
             else: 
                 user.save()
 
