@@ -16,6 +16,7 @@
                                 <th scope="col">Dia/Hora</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Cancelar</th>
+                                <th scope="col">Deletar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,10 +36,15 @@
                                         {% if visita.status == "A" %}
                                             <a href="{% url 'cancelar_agendamento' visita.id %}"
                                                class="btn btn-danger">CANCELAR</a>
+                                        {% else %}
+                                            <a href="" class="btn btn-danger disabled">CANCELAR</a>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if visita.status == "A" %}
                                             <a href="{% url 'limpar_agendamento' visita.id %}"
                                                class="btn btn-warning">Deletar</a>
                                         {% else %}
-                                            <a href="" class="btn btn-danger disabled">CANCELAR</a>
                                             <a href="{% url 'limpar_agendamento' visita.id %}"
                                                class="btn btn-warning">Deletar</a>
                                         {% endif %}
