@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.contrib.messages import constants
 from django.contrib import auth
 
+import re
+
 # libs send email
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
@@ -27,43 +29,59 @@ def cadastro(request):
             messages.add_message(request, constants.ERROR,
                                  'Preencha todos os campos')
             return redirect('/auth/cadastro')
-
+        elif re.findall(username, senha):
+            messages.add_message(request, constants.ERROR,
+                                 'Senha não pode ser igual ao usuario')
+            return redirect('/auth/cadastro')
+        
+        elif re.findall('123', senha) or re.findall('234', senha) or re.findall('345', senha) or re.findall('456', senha) or re.findall('567', senha) or re.findall('678', senha) or re.findall('789', senha):
+            messages.add_message(request, constants.ERROR,
+                                 'Senha não pode ter uma sequencia numérica')
+            return redirect('/auth/cadastro')
+        
+        elif senha != confirmar_senha:
+            messages.add_message(request, constants.ERROR,
+                                 'As senhas digitadas não são iguais!')
+            return redirect('/auth/cadastro')
+        
+        elif len(senha.strip()) <= 5:
+            messages.add_message(request, constants.ERROR,
+                                'A senha tem que ter no minimo 6 caracteres')
+            return redirect('/auth/cadastro')
+        
         user = User.objects.filter(username=username)
-
+        email_filter = User.objects.filter(email=email)
+        
         if user.exists():
             messages.add_message(request, constants.ERROR,
-                                 'Já existe um usuário com esse nome cadastrado')
+                                 'Já existe um usuario com esse nome cadastrado')
+            return redirect('/auth/cadastro')
+        
+        #deu certo
+        if email_filter.exists():
+            messages.add_message(request, constants.ERROR,
+                                 'Esse email já foi cadastrado')
             return redirect('/auth/cadastro')
         
         try:
             user = User.objects.create_user(username=username,
                                             email=email,
                                             password=senha)
+            user.save()
 
-            if senha != confirmar_senha:
-                messages.add_message(request, constants.ERROR,
-                                 'As senhas digitadas não são iguais!')
-                return redirect('/auth/cadastro')
-            elif len(senha.strip()) <= 5:
-                messages.add_message(request, constants.ERROR,
-                                'A senha tem que ter no minimo 6 caracteres')
-                return redirect('/auth/cadastro')
-            else: 
-                user.save()
-
-                messages.add_message(request, constants.SUCCESS,
+            messages.add_message(request, constants.SUCCESS,
                                  'Usuário cadastrado com sucesso!')
 
-                # Send E-mail
-                html_content = render_to_string('emails/cadastro_confirmado.html')
-                text_content = strip_tags(html_content)
+            # Send E-mail
+            html_content = render_to_string('emails/cadastro_confirmado.html')
+            text_content = strip_tags(html_content)
 
-                email_send = EmailMultiAlternatives(
+            email_send = EmailMultiAlternatives(
                     'Cadastro Confirmado', text_content, settings.EMAIL_HOST_USER, [email])
-                email_send.attach_alternative(html_content, 'text/html')
-                email_send.send()
+            email_send.attach_alternative(html_content, 'text/html')
+            email_send.send()
 
-                return redirect('/auth/logar')
+            return redirect('/auth/logar')
         except:
             messages.add_message(request, constants.ERROR,
                                  'Erro interno do sistema')
