@@ -49,6 +49,7 @@ python manage.py runserver
 - handler50X -> Erro server
 - ('/admin') -> Área do **Adminitrador**
 - ('/privacy_policy') -> Privacidade política
+- change password -> Criar uma nova senha
 
 ##
 
