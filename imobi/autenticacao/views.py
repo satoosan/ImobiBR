@@ -29,7 +29,7 @@ def cadastro(request):
             messages.add_message(request, constants.ERROR,
                                  'Preencha todos os campos')
             return redirect('/auth/cadastro')
-        elif re.findall(username, senha):
+        elif re.findall(username.lower(), senha.lower()):
             messages.add_message(request, constants.ERROR,
                                  'Senha não pode ser igual ao usuario')
             return redirect('/auth/cadastro')
@@ -46,7 +46,12 @@ def cadastro(request):
         
         elif len(senha.strip()) <= 5:
             messages.add_message(request, constants.ERROR,
-                                'A senha tem que ter no minimo 6 caracteres')
+                                'A senha tem que ter no minimo 6 caracteres e ao menos um caracter especial')
+            return redirect('/auth/cadastro')
+        
+        elif re.search('[,.;@/]', senha.strip()) == None:
+            messages.add_message(request, constants.ERROR,
+                                'A senha tem que ter no minimo 6 caracteres e ao menos um caracter especial (@ / . , ;)')
             return redirect('/auth/cadastro')
         
         user = User.objects.filter(username=username)
