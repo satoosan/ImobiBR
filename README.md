@@ -49,6 +49,7 @@ python manage.py runserver
 - handler50X -> Erro server
 - ('/admin') -> Área do **Adminitrador**
 - ('/privacy_policy') -> Privacidade política
+- change password -> Criar uma nova senha
 
 ##
 
@@ -64,7 +65,7 @@ Browser Support: Edge 11, Firefox, Chrome (better performance), Safari and Opera
 ## Segurança da Informação  
 
 Seguindo os protocolos da segurança da informação, no formulário de cadastro há uma confirmação
-de senha e verificação de quantidade minima de caracteres que tem, que colocar na caixa de texto.  
+de senha e verificação de quantidade minima de caracteres dentro da caixa de texto.  
 
 ## Referência 
 
