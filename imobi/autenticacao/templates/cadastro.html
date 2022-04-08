@@ -55,7 +55,9 @@
                                            class="form-control"
                                            id="password"
                                            name="senha"
-                                           placeholder="Senha">
+                                           placeholder="Senha"
+                                           onpaste="return false" 
+                                           ondrop="return false">
                                 </div>
                                 <div class="form-group last mb-3">
                                     <label for="confir_password"></label>
@@ -63,21 +65,28 @@
                                            class="form-control"
                                            id="confir_password"
                                            name="confirmar_senha"
-                                           placeholder="Confirmar Senha">
+                                           placeholder="Confirmar Senha"
+                                           onpaste="return false" 
+                                           ondrop="return false">
                                 </div>
-                                <div class="form-group mb-3" style="user-select: none">
+                                <div class="form-group mb-3">
                                     <p class="logo">Imobi-Captcha <i class="fa fa-sync fa-spin"></i></p>
                                     <input type="text"
                                            class="form-control"
                                            id="captcha"
                                            name="captcha"
-                                           readonly="true">
+                                           onpaste="return false" 
+                                           ondrop="return false"
+                                           disabled>
+                                    <hr>
                                     <input type="text"
                                            class="form-control"
                                            id="re_captcha"
                                            name="re_captcha"
                                            placeholder="Digite o texto acima!"
-                                           autocomplete="off">
+                                           autocomplete="off"
+                                           onpaste="return false" 
+                                           ondrop="return false">
                                 </div>
                                 <div class="d-flex mb-2 align-items-center">
                                     <span class="ml-auto"><a href="{% url 'logar' %}" class="forgot-pass">Já tem uma conta?</a></span>

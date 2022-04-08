@@ -14,7 +14,7 @@ urlpatterns = [
 ]
 
 #error not found
-handler404 = "autenticacao.views.handler404"
+handler404 = "autenticacao.views.handler404"    
 
 #error server
 handler500 = 'autenticacao.views.handler500'
