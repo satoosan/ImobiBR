@@ -25,6 +25,10 @@ def cadastro(request):
         senha = request.POST.get('senha')
         confirmar_senha = request.POST.get('confirmar_senha')
         
+        #captcha
+        captcha = request.POST.get('captcha')
+        re_captcha = request.POST.get('re_captcha')
+        
         if len(username.strip()) == 0 or len(email.strip()) == 0 or len(senha.strip()) == 0:
             messages.add_message(request, constants.ERROR,
                                  'Preencha todos os campos')
@@ -52,6 +56,11 @@ def cadastro(request):
         elif re.search('[,.;@/]', senha.strip()) == None:
             messages.add_message(request, constants.ERROR,
                                 'A senha tem que ter no minimo 6 caracteres e ao menos um caracter especial (@ / . , ;)')
+            return redirect('/auth/cadastro')
+        
+        elif captcha != re_captcha:
+            messages.add_message(request, constants.ERROR,
+                                 'Erro de CAPTCHA!')
             return redirect('/auth/cadastro')
         
         user = User.objects.filter(username=username)
