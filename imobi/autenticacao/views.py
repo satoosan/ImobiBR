@@ -63,6 +63,11 @@ def cadastro(request):
                                  'Erro de CAPTCHA!')
             return redirect('/auth/cadastro')
         
+        elif len(captcha.strip()) == 0 and len(re_captcha.strip()) == 0:
+            messages.add_message(request, constants.ERROR,
+                                 'Erro de CAPTCHA!')
+            return redirect('/auth/cadastro')
+        
         user = User.objects.filter(username=username)
         email_filter = User.objects.filter(email=email)
         

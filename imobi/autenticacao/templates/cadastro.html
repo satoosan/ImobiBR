@@ -56,8 +56,13 @@
                                            id="password"
                                            name="senha"
                                            placeholder="Senha"
-                                           onpaste="return false" 
-                                           ondrop="return false">
+                                           onselectstart="return false" 
+                                           onpaste="return false;" 
+                                           onCopy="return false" 
+                                           onCut="return false" 
+                                           onDrag="return false" 
+                                           onDrop="return false" 
+                                           autocomplete="off">
                                 </div>
                                 <div class="form-group last mb-3">
                                     <label for="confir_password"></label>
@@ -66,27 +71,42 @@
                                            id="confir_password"
                                            name="confirmar_senha"
                                            placeholder="Confirmar Senha"
-                                           onpaste="return false" 
-                                           ondrop="return false">
+                                           onselectstart="return false" 
+                                           onpaste="return false;" 
+                                           onCopy="return false" 
+                                           onCut="return false" 
+                                           onDrag="return false" 
+                                           onDrop="return false" 
+                                           autocomplete="off">
                                 </div>
-                                <div class="form-group mb-3">
+                                <div class="form-group mb-3" style="user-select:none;">
                                     <p class="logo">Imobi-Captcha <i class="fa fa-sync fa-spin"></i></p>
-                                    <input type="text"
+                                    <input onselectstart="return false" 
+                                           onpaste="return false;" 
+                                           onCopy="return false" 
+                                           onCut="return false" 
+                                           onDrag="return false" 
+                                           onDrop="return false" 
+                                           autocomplete="off"
+                                           type="text"
                                            class="form-control"
                                            id="captcha"
                                            name="captcha"
-                                           onpaste="return false" 
-                                           ondrop="return false"
                                            disabled>
                                     <hr>
-                                    <input type="text"
+                                    <input onselectstart="return false" 
+                                           onpaste="return false;" 
+                                           onCopy="return false" 
+                                           onCut="return false" 
+                                           onDrag="return false" 
+                                           onDrop="return false" 
+                                           autocomplete="off"
+                                           type="text"
                                            class="form-control"
                                            id="re_captcha"
                                            name="re_captcha"
                                            placeholder="Digite o texto acima!"
-                                           autocomplete="off"
-                                           onpaste="return false" 
-                                           ondrop="return false">
+                                           autocomplete="off">
                                 </div>
                                 <div class="d-flex mb-2 align-items-center">
                                     <span class="ml-auto"><a href="{% url 'logar' %}" class="forgot-pass">Já tem uma conta?</a></span>
