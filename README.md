@@ -64,8 +64,13 @@ Browser Support: Edge 11, Firefox, Chrome (better performance), Safari and Opera
 
 ## Segurança da Informação  
 
-Seguindo os protocolos da segurança da informação, no formulário de cadastro há uma confirmação
-de senha e verificação de quantidade minima de caracteres dentro da caixa de texto.  
+### Validações
+- Tamanho de caracteres
+- Se os inputs das senhas são iguais
+- Ter no mínimo um caracter especial
+- A senha não pode ser igual ao usuário
+- Verificação se o usuário ou o e-mail existem
+- Captcha simples de input texto (com easter egg)
 
 ## Referência 
 
