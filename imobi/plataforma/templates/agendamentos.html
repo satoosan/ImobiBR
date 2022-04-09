@@ -41,12 +41,12 @@
                                         {% endif %}
                                     </td>
                                     <td>
-                                        {% if visita.status == "A" %}
+                                        {% if visita.status == "A" or visita.status == "C" or visita.status == "F"%}
                                             <a href="{% url 'limpar_agendamento' visita.id %}"
                                                class="btn btn-warning">Deletar</a>
                                         {% else %}
-                                            <a href="{% url 'limpar_agendamento' visita.id %}"
-                                               class="btn btn-warning">Deletar</a>
+                                             <a href="{% url 'limpar_agendamento' %}"
+                                                class="btn btn-warning">Deletar</a>
                                         {% endif %}
                                     </td>
                                 </tr>

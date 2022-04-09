@@ -116,7 +116,9 @@ def cancelar_agendamento(request, id):
 
 def limpar_agendamento(request, id):
     visitas = get_object_or_404(Visitas, id=id)
-    if visitas.status == "C" or visitas.status == "A":
+    if visitas.status == "C" or visitas.status == "A" or visitas.status == "F":
+        visitas.delete()
+    else:
         visitas.delete()
     return redirect('/agendamentos')
 
