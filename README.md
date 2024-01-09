@@ -10,7 +10,9 @@ Projeto feita na faculdade UNINOVE.
 
 obs: Aqui está a visão geral de como era o Site por Completo
 
-<p align="left">
+<h1 align="center"><img src="https://cdn.discordapp.com/attachments/1132901500868366338/1194420561313529958/logo-invert.png" ></h1>
+
+<p align="center">
   <a href="https://github.com/satoosan/ImobiBR/blob/main/overview/1-index.gif">Início</a> •
   <a href="https://github.com/satoosan/ImobiBR/blob/main/overview/2-login%26cadastro.gif">Sign/Log in</a> •
  <a href="https://github.com/satoosan/ImobiBR/blob/main/overview/3-home%26imovel.gif">Imoveis</a> •
