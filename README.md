@@ -1,5 +1,7 @@
 # ImobiBR - Projeto Semestral
 
+Projeto feita na faculdade UNINOVE.
+
 ### Integrantes 
 - [ Guilherme Kimura](https://github.com/satoosan)
 - [Luan Pereira](https://github.com/Luanc210)
