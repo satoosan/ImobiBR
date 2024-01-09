@@ -2,6 +2,23 @@
 
 Projeto feita na faculdade UNINOVE.
 
+⚠ Muitas funcionalidades do site pararam de funcionar
+
+1 - Cadastrar/Logar
+
+2 - Algumas imagens estão com sua URL fora de ar
+
+obs: Aqui está a visão geral de como era o Site por Completo
+
+<p align="left">
+  <a href="https://github.com/satoosan/ImobiBR/blob/main/overview/1-index.gif">Início</a> •
+  <a href="https://github.com/satoosan/ImobiBR/blob/main/overview/2-login%26cadastro.gif">Sign/Log in</a> •
+ <a href="https://github.com/satoosan/ImobiBR/blob/main/overview/3-home%26imovel.gif">Imoveis</a> •
+ <a href="https://github.com/satoosan/ImobiBR/blob/main/overview/4-imovel%26agendamentos.gif">Agendamento</a>
+</p>
+
+
+
 ### Integrantes 
 - [ Guilherme Kimura](https://github.com/satoosan)
 - [Luan Pereira](https://github.com/Luanc210)
